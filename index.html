@@ -2,7 +2,13 @@
 <html>
 <head>
   <title>LinkedIn Veterans</title>
+  <link rel="stylesheet" type="text/css" href="states.css">
   <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script type="text/javascript" src="http://platform.linkedin.com/in.js">
+      api_key: ionzdva5sg8p
+      authorize: true
+    </script>
     
     <script type="text/javascript" src="deps/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="deps/underscore.js"></script>
@@ -20,6 +26,13 @@
     <script type="text/javascript" data-main="main" src="deps/require.js"></script>    
 </head>
 <body>
-  LinkedIn Veterans
+  <div id="main">
+    <div id="logged-in">
+      <header>Hi, everyone.</header>
+    </div>
+    <div id="logged-out" class="active">
+      <script type="IN/Login" data-size="large"></script>
+    </div>
+  </div>
 </body>
 </html> 

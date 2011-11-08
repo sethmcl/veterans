@@ -1,0 +1,6 @@
+define([
+  'lib/models'
+],
+function() {
+  
+});

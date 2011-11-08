@@ -1,0 +1,16 @@
+body {
+  background-color: #222;
+  color: #888;
+}
+
+#logged-out {
+  width: 300px;
+  height: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+  background-color: #444;
+  padding: 20px; 
+
+}

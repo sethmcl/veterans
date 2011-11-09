@@ -1,6 +1,0 @@
-define([
-  'lib/models'
-],
-function() {
-  
-});

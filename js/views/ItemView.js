@@ -1,9 +1,21 @@
-define([
-  'text!lib/tmpl/ItemView.dust'
+define(
+[
+  'Backbone',
+  'Dust',
+  'Underscore',
+  'jQuery',  
+  'text!templates/ItemView.dust'
 ], 
-function(ItemTemplate) {
 
-  dust.loadSource(dust.compile(ItemTemplate, 'ItemTemplate'));
+function(
+  Backbone, 
+  Dust, 
+  _,
+  $, 
+  ItemTemplate
+) {
+
+  Dust.loadSource(dust.compile(ItemTemplate, 'ItemTemplate'));
 
   return Backbone.View.extend({
     tagName: 'li',
@@ -28,7 +40,7 @@ function(ItemTemplate) {
         part2: this.model.get('part2')
       };
 
-      dust.render('ItemTemplate', context, function(err, out) {
+      Dust.render('ItemTemplate', context, function(err, out) {
         el.html(out);
       });
       

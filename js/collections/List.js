@@ -1,7 +1,8 @@
 define([
-  'lib/models/Item'
+  'Backbone',
+  'models/Item'
 ],
-function(Item) {  
+function(Backbone, Item) {  
   return Backbone.Collection.extend({
     model: Item
   });

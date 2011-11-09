@@ -1,12 +1,27 @@
-define([
-  'lib/models/Item', 
-  'lib/collections/List',
-  'lib/views/ItemView',
-  'text!lib/tmpl/ListView.dust'
+define(
+[
+  'Backbone',
+  'Dust',
+  'jQuery',
+  'Underscore',
+  'models/Item', 
+  'collections/List',
+  'views/ItemView',
+  'text!templates/ListView.dust'
 ], 
-function(Item, List, ItemView, ListTemplate) {
 
-  dust.loadSource(dust.compile(ListTemplate, 'ListTemplate'));
+function(
+  Backbone,
+  Dust,
+  $,
+  _,
+  Item, 
+  List, 
+  ItemView, 
+  ListTemplate
+) {
+
+  Dust.loadSource(Dust.compile(ListTemplate, 'ListTemplate'));
 
   return Backbone.View.extend({
     el: $('body'),
@@ -28,7 +43,7 @@ function(Item, List, ItemView, ListTemplate) {
     render: function() {
       var el = $(this.el);
 
-      dust.render('ListTemplate', {}, function(err, out) {
+      Dust.render('ListTemplate', {}, function(err, out) {
         el.append(out);
       });
 
@@ -52,9 +67,7 @@ function(Item, List, ItemView, ListTemplate) {
       var itemView = new ItemView({ model: item });
       $('ul', this.el).append(itemView.render().el);      
     }
-  });
-
-  
+  });  
 
   return self;
 });

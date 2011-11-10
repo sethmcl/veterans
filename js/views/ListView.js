@@ -1,9 +1,5 @@
 define(
 [
-  'Backbone',
-  'Dust',
-  'jQuery',
-  'Underscore',
   'models/Item', 
   'collections/List',
   'views/ItemView',
@@ -11,17 +7,13 @@ define(
 ], 
 
 function(
-  Backbone,
-  Dust,
-  $,
-  _,
   Item, 
   List, 
   ItemView, 
   ListTemplate
 ) {
 
-  Dust.loadSource(Dust.compile(ListTemplate, 'ListTemplate'));
+  dust.loadSource(dust.compile(ListTemplate, 'ListTemplate'));
 
   return Backbone.View.extend({
     el: $('body'),
@@ -43,7 +35,7 @@ function(
     render: function() {
       var el = $(this.el);
 
-      Dust.render('ListTemplate', {}, function(err, out) {
+      dust.render('ListTemplate', {}, function(err, out) {
         el.append(out);
       });
 

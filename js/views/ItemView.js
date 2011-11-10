@@ -1,21 +1,13 @@
 define(
 [
-  'Backbone',
-  'Dust',
-  'Underscore',
-  'jQuery',  
   'text!templates/ItemView.dust'
 ], 
 
 function(
-  Backbone, 
-  Dust, 
-  _,
-  $, 
   ItemTemplate
 ) {
 
-  Dust.loadSource(dust.compile(ItemTemplate, 'ItemTemplate'));
+  dust.loadSource(dust.compile(ItemTemplate, 'ItemTemplate'));
 
   return Backbone.View.extend({
     tagName: 'li',
@@ -40,7 +32,7 @@ function(
         part2: this.model.get('part2')
       };
 
-      Dust.render('ItemTemplate', context, function(err, out) {
+      dust.render('ItemTemplate', context, function(err, out) {
         el.html(out);
       });
       

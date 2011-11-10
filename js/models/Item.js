@@ -1,9 +1,9 @@
 define(
 [
-  'Backbone'
+  
 ],
 
-function(Backbone) {
+function() {
   return Backbone.Model.extend({
     defaults: {
       part1: 'hello',

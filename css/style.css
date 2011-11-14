@@ -1,6 +1,8 @@
 body {
-  background-color: #222;
+  background-color: #0073b2;
+  background-image: url('../img/large-background.png');
   color: #888;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
 }
 
 #logged-out {
@@ -12,5 +14,10 @@ body {
   margin: -100px 0 0 -150px;
   background-color: #444;
   padding: 20px; 
+}
 
+.status-bar {
+  background-color: rgba(0, 0, 0, .6);
+  color: #fff;
+  padding: 10px 10px 10px 20px;
 }

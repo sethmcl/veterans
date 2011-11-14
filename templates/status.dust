@@ -1,0 +1,13 @@
+{#searchInProgress}
+  <div class='status-bar'>
+    searching...
+  </div>
+{:else}
+  <div class='status-bar'>
+    {#peopleSearchResults}
+      {people.length} people found
+    {:else}
+      try searching!
+    {/peopleSearchResults}
+  </div>
+{/searchInProgress}

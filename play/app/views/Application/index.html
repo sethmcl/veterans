@@ -1,87 +1,11 @@
 #{extends 'main.html' /}
 #{set title:'LinkedIn Veterans' /}
-*{<script type="text/javascript" data-main="/js/main" src="/js/deps/require.js"></script>}*
-<!-- <script type="text/javascript" src="/js/sample.js"></script> -->
 
-<h1>LinkedIn Veterans</h1>
-<!--
-<div id="dustDiv">This is a div which will be replaced directly by Dust</div>
-<div id="jqueryDiv">This is a div which will be replaced directly by jquery</div>
-<p>This is a paragraph which will be replaced.</p>
-Command: <input type="text" id="commandinput"/><br/>
-<select id="commandselect">
-	<option value="string">String</option>
-	<option value="replace">Replace</option>
-	<option value="array">Array</option>
-</select><br/>
-<button id="button">Execute</button>
--->
-<select id="peopleSelect">
-	<option>Select a person</option>
-</select>
-<input id="rendeAllButton" type="button" value="render all" />
-<div class="people-card-template">
-<div class="people-card-wrap">
-	<div class="people-card">
-	<h3>{fullname}</h3>
-	<p>{title}</p>
-	<p>{location}</p>
-	</div>
+#{set 'moreScripts'}
+	<script src="/js/libs/require/require.js" type="text/javascript" data-main="/js/main"></script>
+#{/set}
+
+<div id="main">
+	<div id="logged-in"></div>
+	<div id="sign-in"></div>
 </div>
-</div>
-<div id="peopleData"></div>
-<script type="text/javascript">
-$(document).ready(function(){
-	var people = {
-		source: $('.people-card-wrap').html(),
-		context: null
-	};
-
-	$.ajax('/people',{
-		type: 'get',
-		complete: initData
-	});
-	function initData(req){
-		var mappedData = {};
-		$.map(JSON.parse(req.responseText), function(obj){
-			mappedData[obj.id] = obj.data;
-		});
-		people.context = mappedData;
-		console.log(people.context);
-
-		var $peopleSelect = $('#peopleSelect');
-		var $renderAllButton = $('#rendeAllButton');
-
-		$.each(people.context, function(){
-			var opt = $(document.createElement('option')).val(this.id).html(this.fullname);
-			$peopleSelect.append(opt);
-		});
-
-		$peopleSelect.change(initTemplate);
-		$renderAllButton.click(initTemplate);
-	}
-	function initTemplate(){
-		var compiled = dust.compile(people.source, "people");
-		var $peopleData = $('#peopleData');
-		dust.loadSource(compiled);
-
-		if(this.id == 'rendeAllButton'){
-			$peopleData.html('');
-			console.log(people.context);
-			for(var person in people.context){
-				console.log(person);
-				dust.render("people", person, function(err, out){
-					$peopleData.append(out);
-				});
-			}
-		}
-		else{
-			var selectedPersonId = $(this).val();
-			dust.render("people", people.context[selectedPersonId], function(err, out){
-				$peopleData.html(out);
-			});
-		}
-	}
-
-});
-</script>

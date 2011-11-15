@@ -1,10 +1,14 @@
-define([
-  'lib/views/ListView'
-],
-function(ListView) {
-  Backbone.sync = function(method, model, success, error) {
-    success();
+require.config({
+  paths: {
+    //jQuery:     'libs/jquery/jquery',
+    //Underscore: 'libs/underscore/underscore',
+    //Backbone:   'libs/backbone/backbone',
+    //Dust:       'libs/dust/dust',
+    templates:  '../templates'
   }
-  
-  var listView = new ListView();
+});
+
+define(function(require) {
+  var app = require('app');
+  app.initialize();
 });

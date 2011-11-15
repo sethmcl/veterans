@@ -15,3 +15,6 @@
   display: block;
 }
 */
+
+ul.facet li { display: none; }
+ul.facet li.active { display: block; }

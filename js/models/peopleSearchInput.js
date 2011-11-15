@@ -60,18 +60,25 @@ define(function(require) {
       return this;
     },
 
-    addFacet: function(facetName) {
+    addFacets: function(facets) {
       var key    =  'facets';
       var values =  this.get(key);
       var data   =  {};
+      var dirty  =  false;
 
-      if(values.indexOf(facetName) === -1) {
-        values.push(facetName);
+      _.each(facets, function(facetName) {
+        if(values.indexOf(facetName) === -1) {
+          values.push(facetName);        
+          dirty = true;
+        }  
+      });
+
+      if(dirty) {
         data[key] = values;
         this.set(data);
         this.trigger('change');
       }
-
+      
       return this;
     },
 

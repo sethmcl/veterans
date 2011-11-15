@@ -1,6 +1,7 @@
 define(function(require) {
   var HeadView        = require('views/HeadView');
   var StatusView      = require('views/StatusView');
+  var FacetListView   = require('views/FacetListView');
   var searchInput     = require('models/peopleSearchInput');
   var searchResults   = require('models/peopleSearchResults');
   var templateMarkup  = require('text!templates/logged-in.dust');
@@ -17,9 +18,14 @@ define(function(require) {
       'click span.search': 'keywordSearch'
     },
     initialize: function(config) {
-      _.bindAll(this, 'render', 'unrender', 'keywordSearch', 'onDustRendered');      
-      this.statusView = new StatusView();
-      this.headView = new HeadView();
+      _.bindAll(this, 'render', 'unrender', 'keywordSearch', 'onDustRendered'); 
+           
+      this.views = {
+        'statusView'    : new StatusView(),
+        'headView'      : new HeadView(),
+        'facetListView' : new FacetListView()
+      };
+
       this.context = {};
     },
     render: function() {
@@ -29,16 +35,20 @@ define(function(require) {
     onDustRendered: function(err, out) {
       this.el.html(out);
       
-      this.headView.el = $('#head', this.el);
-      this.headView.render();
+      this.views['headView'].el = $('#head', this.el);
+      this.views['headView'].render();
 
-      this.statusView.el = $('#status', this.el);
-      this.statusView.render();
+      this.views['facetListView'].el = $('#facet-list', this.el);
+      this.views['facetListView'].render();
+
+      this.views['statusView'].el = $('#status', this.el);
+      this.views['statusView'].render();
     },    
     unrender: function() {
       $(this.el).remove();
     },
     keywordSearch: function() {
+      searchInput.addFacets(['location', 'industry', 'current-company']);
       searchInput.set({ keywords: 'rochester' });
       // searchInput.addCohort('school', '32342');
       // searchInput.set({ keywords: 'test' });

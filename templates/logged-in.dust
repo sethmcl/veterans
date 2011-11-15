@@ -2,4 +2,4 @@
 <div id="facet-list"></div>
 <div id="status"></div>
 
-<span class="search">click me to search</span>
+<a class="search">click me to search</a>

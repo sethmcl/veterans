@@ -15,7 +15,7 @@ define(function(require) {
   return Backbone.View.extend({
     el: $('#logged-in'),    
     events: {
-      'click span.search': 'keywordSearch'
+      'click .search': 'keywordSearch'
     },
     initialize: function(config) {
       _.bindAll(this, 'render', 'unrender', 'keywordSearch', 'onDustRendered'); 

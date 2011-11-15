@@ -21,3 +21,9 @@ body {
   color: #fff;
   padding: 10px 10px 10px 20px;
 }
+
+#facet-list ul.facets li { display: inline-block; }
+#facet-list ul.facet li { display: block; }
+#facet-list ul.facet .label { color: #fff; }
+
+a { color: yellow; }

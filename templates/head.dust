@@ -1,4 +1,2 @@
-VETERANS
-<div>
-  {userData.firstName}, where are your fellow {cohortName} now?
-</div>
+<h1>VETERANS</h1>
+<h2>{userData.firstName}, where are your fellow veterans now?</h2>

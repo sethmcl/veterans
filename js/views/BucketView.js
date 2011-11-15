@@ -1,8 +1,7 @@
 define(function(require) {
-  var templateName          = 'FacetView';
-  var templateMarkup        = require('text!templates/FacetView.dust');
+  var templateName          = 'BucketView';
+  var templateMarkup        = require('text!templates/BucketView.dust');
   var channel               = require('util/channel');
-  var BucketView            = require('views/BucketView');
 
   dust.loadSource(dust.compile(templateMarkup, templateName));
 
@@ -20,31 +19,17 @@ define(function(require) {
       this.context = {
         firstName: null
       };      
-
-      this.bucketViews = [];
-
-      for(var i = 0; i < 10; i++) {
-        this.bucketViews.push(new BucketView());
-      }
     },
-    render: function() {
+    render: function() {      
+
       return this;
     },
     renderAsync: function(cb) {
       var el = $(this.el);  
-      var ul;
       var cb = (typeof cb === 'function') ? cb : function() {};          
-      var bucketViews = this.bucketViews;
 
       dust.render(templateName, this.context, function(err, out) {
         el.html(out);
-        ul = $('ul', el);
-        _.each(bucketViews, function(view) {
-          view.renderAsync(function(vEl) {
-            ul.append(vEl);
-          });
-        });
-
         cb(el);
       });
 
@@ -54,14 +39,18 @@ define(function(require) {
       $(this.el).remove();
       return this;
     },
-    update: function(facetData) {      
-      var buckets = facetData.buckets.values;
-      var bucket;      
-            
-      _.each(this.bucketViews, function(view, idx) {
-        bucket = buckets[idx];
-        view.update(bucket);        
-      });        
+    update: function(bucketData) {
+      var label = $('.label', this.el);
+      var count = $('.count', this.el);
+
+      if(bucketData) {
+        label.html(bucketData.name);
+        count.html(bucketData.count);
+        $(this.el).addClass('active');
+      } else {
+        $(this.el).removeClass('active');
+      }
+
     }
   });
 });

@@ -1,0 +1,4 @@
+VETERANS
+<div>
+  {userData.firstName}, where are your fellow {cohortName} now?
+</div>

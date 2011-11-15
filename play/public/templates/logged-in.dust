@@ -1,0 +1,12 @@
+<div id="head"></div>
+<div id="status"></div>
+
+<div id="facets">
+  Facets
+</div>
+
+<div id="results">
+  Results
+</div>
+
+<span class="search">click me to search</span>

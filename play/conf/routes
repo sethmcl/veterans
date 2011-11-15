@@ -4,6 +4,7 @@
 
 # Home page
 GET		/										Application.index
+GET		/test									Application.test
 GET		/people									Application.people
 
 # Ignore favicon requests
@@ -13,7 +14,9 @@ GET		/favicon.ico							404
 #GET    /public/                               	staticDir:public
 GET		/js/									staticDir:public/javascripts
 GET		/css/									staticDir:public/stylesheets
+GET		/img/								staticDir:public/images
 GET		/images/								staticDir:public/images
+GET		/templates/								staticDir:public/templates
 
 # Catch all
 *		/{controller}/{action}					{controller}.{action}

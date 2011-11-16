@@ -14,11 +14,9 @@ define(function(require) {
         'render', 
         'unrender',
         'renderAsync',
-        'update');    
-
-      this.context = {
-        firstName: null
-      };      
+        'update');     
+        
+      this.context = {};          
     },
     render: function() {
       return this;
@@ -39,17 +37,7 @@ define(function(require) {
       return this;
     },
     update: function(bucketData) {
-      var label = $('.label', this.el);
-      var count = $('.count', this.el);
-
-      if(bucketData) {
-        label.html(bucketData.name);
-        count.html(bucketData.count);
-        $(this.el).addClass('active');
-      } else {
-        $(this.el).removeClass('active');
-      }
-
+     
     }
   });
 });

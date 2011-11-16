@@ -18,3 +18,6 @@
 
 ul.facet li { display: none; }
 ul.facet li.active { display: block; }
+
+#show-more { display: none; }
+#show-more.active { display: block; }

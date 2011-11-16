@@ -1,5 +1,5 @@
-<div id="head"></div>
-<div id="facet-list"></div>
-<div id="status"></div>
-<div id="people-results"></div>
+<div id="head-view"></div>
+<div id="facet-list-view"></div>
+<div id="status-view"></div>
+<div id="people-list-view"></div>
 <a class="search">click me to search</a>

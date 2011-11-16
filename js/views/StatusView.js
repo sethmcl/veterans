@@ -34,8 +34,7 @@ define(function(require) {
     },
     onSearchReturned: function() {
       this.context.peopleSearchResults = peopleSearchResults.toJSON();
-      this.context.searchInProgress = false;
-      this.context.peopleCount = this.context.peopleSearchResults.length;
+      this.context.searchInProgress = false;      
       this.render();
     },
     onSearchBegin: function() {

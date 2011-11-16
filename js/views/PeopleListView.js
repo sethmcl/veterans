@@ -7,8 +7,11 @@ define(function(require) {
 
   dust.loadSource(dust.compile(templateMarkup, templateName));
 
-  return Backbone.View.extend({    
-    events: {},
+  return Backbone.View.extend({
+    el: $('body'),    
+    events: {
+      'click #show-more'    :   'getMorePeopleResults'      
+    },
     initialize: function() {
       _.bindAll(
         this, 
@@ -16,9 +19,11 @@ define(function(require) {
         'unrender', 
         'onSearchReturned', 
         'onSearchBegin',
-        'dustCb');    
+        'dustCb',
+        'getMorePeopleResults');    
 
       this.context = {};
+      this.peopleCardViews = [];
       
       channel.sub('search', 'search-returned', this.onSearchReturned);  
       channel.sub('search', 'search-begin', this.onSearchBegin);        
@@ -31,31 +36,54 @@ define(function(require) {
       this.el.html(out);
       var ul = $('ul', this.el);
 
-      // _.each(this.facetViews, function(view) {
-      //   view.renderAsync(function(vEl) {
-      //     ul.append(vEl);
-      //   });
-      // });    
+      _.each(this.peopleCardViews, function(view) {
+        view.renderAsync(function(vEl) {
+          ul.append(vEl);
+        });
+      });    
     },
     unrender: function() {
       $(this.el).remove();
       return this;
     },
     onSearchReturned: function() {
-      var people = peopleSearchResults.get('people');
-      var person;
+      
+      var data    = peopleSearchResults.toJSON();
+      var people  = data.people;
+      var hasMore = data.hasMore;
+      var peopleCard;
 
-      // _.each(this.facetViews, function(view, idx) {
-      //   facet = facets[idx];
+      var ul = $('ul', this.el);
 
-      //   if(facet) {
-      //     view.update(facet);
-      //   }
-      // }); 
+      this.peopleCardViews = [];
+      ul.html('');
+
+      _.each(people, function(person) {
+        peopleCard = new PeopleCardView();
+        peopleCard.context.person = person;
+        peopleCard.renderAsync(function(vEl) {
+          ul.append(vEl);
+        });
+      });
+
+      if(hasMore) {
+        $('#show-more', this.el).addClass('active');
+      } else {
+        $('#show-more', this.el).removeClass('active');
+      }
+      
+      //  _.each(this.peopleCardViews, function(view) {
+      //   view.renderAsync(function(vEl) {
+      //     ul.append(vEl);
+      //   });
+      // });
 
     },
     onSearchBegin: function() {
       
+    },
+    getMorePeopleResults: function() {
+      channel.pub('search', 'get-more-people');
     }
   });
 });

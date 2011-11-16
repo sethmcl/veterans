@@ -14,6 +14,8 @@ define(function(require) {
   //watch the input for changes
   searchInput.bind('change', executeSearch);  
 
+  channel.sub('search', 'get-more-people', fetchMore);
+
   function executeSearch() {
     var requestUrl = buildRequestUrl();
 
@@ -30,24 +32,54 @@ define(function(require) {
     }    
   }
 
+  function fetchMore() {
+    var start     = searchResults.get('start');
+    var count     = searchResults.get('count');
+    var total     = searchResults.get('total');
+    var hasMore   = searchResults.get('hasMore');
+
+    if(!hasMore) return;
+
+    searchInput.set({
+      start: start + count
+    });    
+  }
+
   function onSearchResults(results) {
-    var facets = [];
-    var people = [];
+    var facets  = [];
+    var people  = [];
+
+    var start   = results.people['_start'];
+    var count   = results.people['_count'];
+    var total   = results.people['_total'];
+    var hasMore = true;
+
+    if(start + count >= total) hasMore = false;
+
+    searchResults.set({
+      start       : start,
+      count       : count,
+      total       : total,
+      peopleCount : total,
+      hasMore     : hasMore
+    });
 
     _.each(results.facets.values, function(facet) {
       facets.push(facet);
     });
 
+    searchResults.setFacets(facets);
+
     _.each(results.people.values, function(person) {
       people.push(person);
     });
 
-    searchResults.setFacets(facets);
-
-    (results.people['_start'] === 0) ? 
-      searchResults.setPeople(people) : 
+    if(start === 0) {
+      searchResults.setPeople(people);
+    } else {
       searchResults.appendPeople(people);
-
+    }
+    
     channel.pub('search', 'search-returned');
   }
 
@@ -70,6 +102,9 @@ define(function(require) {
     url = addStringValue(url,   'country-code');
     url = addStringValue(url,   'postal-code');
     url = addStringValue(url,   'distance');
+    url = addStringValue(url,   'start');
+    url = addStringValue(url,   'count');
+    url = addStringValue(url,   'sort');
     url = addArrayValue(url,    'facets');
 
     url = addCohortValue(url,   'cohorts-location',         'location');

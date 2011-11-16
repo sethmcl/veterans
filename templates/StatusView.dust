@@ -5,7 +5,7 @@
 {:else}
   <div class='status-bar'>
     {#peopleSearchResults}
-      {people.length} people found
+      {peopleCount} people found
     {:else}
       try searching!
     {/peopleSearchResults}

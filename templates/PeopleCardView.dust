@@ -1,1 +1,18 @@
-person!
+{!
+  Available data:
+    INT   person.distance
+    STR   person.firstName
+    STR   person.headline
+    STR   person.id
+    STR   person.industry
+    STR   person.lastName    
+    STR   person.pictureUrl
+    STR   person.publicProfileUrl
+
+    OBJ   person.location
+    STR   person.location.name
+    OBJ   person.location.country
+    STR   person.location.country.code      
+!}
+
+{person.firstName} {person.lastName}, {person.location.name}

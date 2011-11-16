@@ -3,19 +3,24 @@ define(function(require) {
   var templateMarkup        = require('text!templates/FacetView.dust');
   var channel               = require('util/channel');
   var BucketView            = require('views/BucketView');
+  var log                   = require('util/log');
+  var peopleSearchInput     = require('models/peopleSearchInput');
 
   dust.loadSource(dust.compile(templateMarkup, templateName));
 
   return Backbone.View.extend({  
     tagName: 'li',  
-    events: {},
+    events: {
+      'click li'    :   'toggleBucket'
+    },
     initialize: function() {
       _.bindAll(
         this, 
         'render', 
         'unrender',
         'renderAsync',
-        'update');    
+        'update',
+        'toggleBucket');    
 
       this.context = {
         firstName: null
@@ -60,8 +65,32 @@ define(function(require) {
             
       _.each(this.bucketViews, function(view, idx) {
         bucket = buckets[idx];
+        bucket.facetCode = facetData.code;
         view.update(bucket);        
       });        
+    },
+    toggleBucket: function(e) {
+      log('facet bucket clicked');
+      var target    = $(e.target);
+      var dataJSON  = target.attr('data-bucket');
+      var data;
+
+      try {
+        data = JSON.parse(dataJSON);
+      } catch(e) {
+        log(e);
+      }
+
+      if(!data) return;
+
+      //alert(data.facet);
+
+      if(data.add) {
+        peopleSearchInput.addCohort(data.facet, data.code);
+      } else {
+        peopleSearchInput.removeCohort(data.facet, data.code);
+      }
+      
     }
   });
 });

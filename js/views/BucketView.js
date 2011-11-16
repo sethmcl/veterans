@@ -42,14 +42,24 @@ define(function(require) {
     update: function(bucketData) {
       var label = $('.label', this.el);
       var count = $('.count', this.el);
+      var data  = {};
+      var addAction;
 
-      if(bucketData) {
-        label.html(bucketData.name);
-        count.html(bucketData.count);
-        $(this.el).addClass('active');
-      } else {
+      if(!bucketData) {
         $(this.el).removeClass('active');
+        return;
       }
+      
+      data = {
+        add: !bucketData.selected,
+        facet: bucketData.facetCode,
+        code: bucketData.code
+      };
+
+      label.attr('data-bucket', JSON.stringify(data));
+      label.html(bucketData.name);
+      count.html(bucketData.count);
+      $(this.el).addClass('active');
 
     }
   });

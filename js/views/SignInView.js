@@ -1,11 +1,11 @@
 define(function(require) {
-  var templateName = 'sign-in';
-  var templateMarkup = require('text!templates/sign-in.dust');
+  var templateName = 'SignInView';
+  var templateMarkup = require('text!templates/SignInView.dust');
 
   dust.loadSource(dust.compile(templateMarkup, templateName));
 
   return Backbone.View.extend({
-    el: $('#sign-in'),
+    el: $('#sign-in-view'),
     events: {},
     initialize: function() {
       _.bindAll(this, 'render', 'unrender');      

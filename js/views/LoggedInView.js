@@ -4,16 +4,16 @@ define(function(require) {
   var FacetListView   = require('views/FacetListView');
   var searchInput     = require('models/peopleSearchInput');
   var searchResults   = require('models/peopleSearchResults');
-  var templateMarkup  = require('text!templates/logged-in.dust');
+  var templateMarkup  = require('text!templates/LoggedInView.dust');
   var channel         = require('util/channel');
   var log             = require('util/log');
 
-  var templateName    = 'logged-in';
+  var templateName    = 'LoggedInView';
 
   dust.loadSource(dust.compile(templateMarkup, templateName));
 
   return Backbone.View.extend({
-    el: $('#logged-in'),    
+    el: $('#logged-in-view'),    
     events: {
       'click .search': 'keywordSearch'
     },

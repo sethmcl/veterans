@@ -1,6 +1,6 @@
 define(function(require) {
-  var templateName          = 'head';
-  var templateMarkup        = require('text!templates/head.dust');
+  var templateName          = 'HeadView';
+  var templateMarkup        = require('text!templates/HeadView.dust');
   var peopleSearchResults   = require('models/peopleSearchResults');
   var channel               = require('util/channel');
 

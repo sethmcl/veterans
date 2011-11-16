@@ -1,6 +1,6 @@
 define(function(require) {
-  var templateName          = 'status';
-  var templateMarkup        = require('text!templates/status.dust');
+  var templateName          = 'StatusView';
+  var templateMarkup        = require('text!templates/StatusView.dust');
   var peopleSearchResults   = require('models/peopleSearchResults');
   var channel               = require('util/channel');
 

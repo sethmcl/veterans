@@ -1,2 +1,2 @@
-<h1>VETERANS</h1>
-<h2>{userData.firstName}, where are your fellow veterans now?</h2>
+<h1 class="header">VETERANS</h1>
+<h2 class="header"><span class="user-name">{userData.firstName}</span>, where are your fellow veterans now?</h2>

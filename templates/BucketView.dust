@@ -1,1 +1,5 @@
-<a href="#" class="label"></a> -- <span class="count"></span>
+<a href="#">
+  <span class="graph"></span>
+  <span class="label"></span>
+  <span class="count"></span>
+</a>

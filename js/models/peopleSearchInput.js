@@ -1,4 +1,6 @@
 define(function(require) {
+  var channel     = require('util/channel');
+
   var SearchInput = Backbone.Model.extend({
     defaults: {
       'keywords'                :   null,
@@ -27,7 +29,23 @@ define(function(require) {
     },
 
     initialize: function() {
-      _.bindAll(this, 'addCohort');
+      _.bindAll(
+        this,
+        'addCohort',
+        'onAddBucket',
+        'onRemoveBucket'
+      );
+
+      channel.sub('search', 'add-bucket', this.onAddBucket);
+      channel.sub('search', 'remove-bucket', this.onRemoveBucket);
+    },
+
+    onAddBucket: function(e) {
+      this.addCohort(e.data.facetCode, e.data.code);
+    },
+
+    onRemoveBucket: function(e) {
+      this.removeCohort(e.data.facetCode, e.data.code);
     },
 
     addCohort: function(type, value) {

@@ -12,22 +12,16 @@ define(function(require) {
       _.bindAll(
         this, 
         'render', 
-        'unrender',
-        'renderAsync',
+        'unrender',        
         'update');     
         
       this.context = {};          
     },
     render: function() {
-      return this;
-    },
-    renderAsync: function(cb) {
       var el = $(this.el);  
-      var cb = (typeof cb === 'function') ? cb : function() {};          
-
+      
       dust.render(templateName, this.context, function(err, out) {
-        el.html(out);
-        cb(el);
+        el.html(out);      
       });
 
       return this;

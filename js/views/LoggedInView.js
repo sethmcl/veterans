@@ -3,6 +3,7 @@ define(function(require) {
   var StatusView      = require('views/StatusView');
   var FacetListView   = require('views/FacetListView');
   var PeopleListView  = require('views/PeopleListView');
+  var BucketBarView   = require('views/BucketBarView');
   var searchInput     = require('models/peopleSearchInput');
   var searchResults   = require('models/peopleSearchResults');
   var templateMarkup  = require('text!templates/LoggedInView.dust');
@@ -16,16 +17,17 @@ define(function(require) {
   return Backbone.View.extend({
     el: $('#logged-in-view'),    
     events: {
-      'click .search': 'keywordSearch'
+      
     },
     initialize: function(config) {
-      _.bindAll(this, 'render', 'unrender', 'keywordSearch', 'onDustRendered'); 
+      _.bindAll(this, 'render', 'unrender', 'onDustRendered'); 
            
       this.views = {
         'statusView'    : new StatusView(),
         'headView'      : new HeadView(),
         'facetListView' : new FacetListView(),
-        'peopleListView': new PeopleListView()
+        'peopleListView': new PeopleListView(),
+        'bucketBarView' : new BucketBarView()
       };
 
       this.context = {};
@@ -35,28 +37,17 @@ define(function(require) {
       dust.render(templateName, this.context, this.onDustRendered);
     },
     onDustRendered: function(err, out) {
-      this.el.html(out);
+      $(this.el).html(out);
       
-      this.views['headView'].el = $('#head-view', this.el);
-      this.views['headView'].render();
-
-      this.views['facetListView'].el = $('#facet-list-view', this.el);
-      this.views['facetListView'].render();
-
-      this.views['statusView'].el = $('#status-view', this.el);
-      this.views['statusView'].render();
-
-      this.views['peopleListView'].el = $('#people-list-view', this.el);
-      this.views['peopleListView'].render();
+      $('#head-view', this.el).html(this.views['headView'].render().el);      
+      $('#facet-list-view', this.el).html(this.views['facetListView'].render().el);
+      $('#status-view', this.el).html(this.views['statusView'].render().el);
+      $('#people-list-view', this.el).html(this.views['peopleListView'].render().el);
+      $('#bucket-bar-view', this.el).html(this.views['bucketBarView'].render().el);
+      
     },    
     unrender: function() {
       $(this.el).remove();
-    },
-    keywordSearch: function() {
-      searchInput.addFacets(['location', 'industry', 'current-company']);
-      searchInput.set({ keywords: 'rochester' });
-      // searchInput.addCohort('school', '32342');
-      // searchInput.set({ keywords: 'test' });
     }
   });
 });

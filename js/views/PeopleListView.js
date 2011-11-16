@@ -8,14 +8,14 @@ define(function(require) {
   dust.loadSource(dust.compile(templateMarkup, templateName));
 
   return Backbone.View.extend({
-    el: $('body'),    
+    tagName: 'div',        
     events: {
       'click #show-more'    :   'getMorePeopleResults'      
     },
     initialize: function() {
       _.bindAll(
         this, 
-        'render', 
+        'render',         
         'unrender', 
         'onSearchReturned', 
         'onSearchBegin',
@@ -31,16 +31,15 @@ define(function(require) {
     render: function() {      
       dust.render(templateName, this.context, this.dustCb);
       return this;
-    },
+    },    
     dustCb: function(err, out) {
-      this.el.html(out);
+      $(this.el).html(out);
+      
       var ul = $('ul', this.el);
 
       _.each(this.peopleCardViews, function(view) {
-        view.renderAsync(function(vEl) {
-          ul.append(vEl);
-        });
-      });    
+        ul.append(view.render().el);
+      });      
     },
     unrender: function() {
       $(this.el).remove();
@@ -61,9 +60,7 @@ define(function(require) {
       _.each(people, function(person) {
         peopleCard = new PeopleCardView();
         peopleCard.context.person = person;
-        peopleCard.renderAsync(function(vEl) {
-          ul.append(vEl);
-        });
+        ul.append(peopleCard.render().el);        
       });
 
       if(hasMore) {
@@ -71,13 +68,6 @@ define(function(require) {
       } else {
         $('#show-more', this.el).removeClass('active');
       }
-      
-      //  _.each(this.peopleCardViews, function(view) {
-      //   view.renderAsync(function(vEl) {
-      //     ul.append(vEl);
-      //   });
-      // });
-
     },
     onSearchBegin: function() {
       

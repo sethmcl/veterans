@@ -4,8 +4,8 @@
   </div>
 {:else}
   <div class='status-bar'>
-    {#peopleSearchResults}
-      {peopleCount} people found
+    {#peopleSearchResults}    
+      {peopleCount} veterans found
     {:else}
       try searching!
     {/peopleSearchResults}

@@ -1,0 +1,5 @@
+<ul>
+  {#buckets}
+    <li><a href="#" data-bucket="{json}">{name}{~n} X</a></li>
+  {/buckets}  
+</ul>

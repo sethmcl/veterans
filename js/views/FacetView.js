@@ -18,39 +18,33 @@ define(function(require) {
         this, 
         'render', 
         'unrender',
-        'renderAsync',
         'update',
-        'toggleBucket');    
+        'toggleBucket',
+        'onAddBucket',
+        'onRemoveBucket'
+      );    
 
-      this.context = {
-        firstName: null
-      };      
-
+      this.context = {};      
       this.bucketViews = [];
+      channel.sub('search', 'add-bucket', this.onAddBucket);
+      channel.sub('search', 'remove-bucket', this.onRemoveBucket);
 
       for(var i = 0; i < 10; i++) {
         this.bucketViews.push(new BucketView());
       }
     },
     render: function() {
-      return this;
-    },
-    renderAsync: function(cb) {
       var el = $(this.el);  
       var ul;
-      var cb = (typeof cb === 'function') ? cb : function() {};          
       var bucketViews = this.bucketViews;
 
       dust.render(templateName, this.context, function(err, out) {
         el.html(out);
         ul = $('ul', el);
+        
         _.each(bucketViews, function(view) {
-          view.renderAsync(function(vEl) {
-            ul.append(vEl);
-          });
-        });
-
-        cb(el);
+          ul.append(view.render().el);
+        });        
       });
 
       return this;
@@ -86,10 +80,15 @@ define(function(require) {
       //alert(data.facet);
 
       if(data.add) {
-        peopleSearchInput.addCohort(data.facet, data.code);
+        channel.pub('search', 'add-bucket', { data: data });
       } else {
-        peopleSearchInput.removeCohort(data.facet, data.code);
-      }
+        channel.pub('search', 'remove-bucket', { data: data });
+      }      
+    },
+    onAddBucket: function(e) {
+      
+    },
+    onRemoveBucket: function(e) {
       
     }
   });

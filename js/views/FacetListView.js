@@ -8,6 +8,7 @@ define(function(require) {
   dust.loadSource(dust.compile(templateMarkup, templateName));
 
   return Backbone.View.extend({    
+    tagName: 'div',
     events: {},
     initialize: function() {
       _.bindAll(
@@ -32,13 +33,11 @@ define(function(require) {
       return this;
     },
     dustCb: function(err, out) {
-      this.el.html(out);
+      $(this.el).html(out);
       var ul = $('ul', this.el);
 
       _.each(this.facetViews, function(view) {
-        view.renderAsync(function(vEl) {
-          ul.append(vEl);
-        });
+        ul.append(view.render().el);
       });    
     },
     unrender: function() {

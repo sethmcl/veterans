@@ -7,6 +7,7 @@ define(function(require) {
   dust.loadSource(dust.compile(templateMarkup, templateName));
 
   return Backbone.View.extend({    
+    tagName: 'div',
     events: {},
     initialize: function() {
       _.bindAll(

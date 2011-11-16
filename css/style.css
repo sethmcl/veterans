@@ -22,8 +22,14 @@ body {
   padding: 10px 10px 10px 20px;
 }
 
+#bucket-bar-view { 
+  background-color: rgba(0, 0, 0, .6); 
+  color: #fff;
+}
+
 #facet-list-view ul.facets li { display: inline-block; }
 #facet-list-view ul.facet li { display: block; }
 #facet-list-view ul.facet .label { color: #fff; }
+#facet-list-view ul.facet .label.selected { color: lime; }
 
 a { color: yellow; }

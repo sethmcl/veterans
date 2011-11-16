@@ -13,24 +13,17 @@ define(function(require) {
         this, 
         'render', 
         'unrender',
-        'renderAsync',
         'update');    
 
       this.context = {
         firstName: null
       };      
     },
-    render: function() {      
-
-      return this;
-    },
-    renderAsync: function(cb) {
-      var el = $(this.el);  
-      var cb = (typeof cb === 'function') ? cb : function() {};          
+    render: function() {
+      var el = $(this.el);      
 
       dust.render(templateName, this.context, function(err, out) {
-        el.html(out);
-        cb(el);
+        el.html(out);      
       });
 
       return this;
@@ -51,14 +44,22 @@ define(function(require) {
       }
       
       data = {
-        add: !bucketData.selected,
-        facet: bucketData.facetCode,
-        code: bucketData.code
+        add       : !bucketData.selected,
+        facetCode : bucketData.facetCode,
+        code      : bucketData.code,
+        name      : bucketData.name
       };
+
+      if(bucketData.selected) {
+        label.addClass('selected');
+      } else {
+        label.removeClass('selected');
+      }
 
       label.attr('data-bucket', JSON.stringify(data));
       label.html(bucketData.name);
       count.html(bucketData.count);
+
       $(this.el).addClass('active');
 
     }

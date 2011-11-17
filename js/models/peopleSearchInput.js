@@ -56,7 +56,8 @@ define(function(require) {
       if(values) {
         if(values.push && values.indexOf(value) === -1) {
           values.push(value);          
-          data[key] = values;          
+          data[key] = values;     
+          data.start = 0;               
           this.set(data);
           this.trigger('change');
         }
@@ -74,6 +75,7 @@ define(function(require) {
       if((idx = values.indexOf(value)) !== -1) {
         values.splice(idx, 1);
         data[key] = values;
+        data.start = 0;
         this.set(data);
         this.trigger('change');
       }

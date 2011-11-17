@@ -57,6 +57,17 @@ define(function(require) {
       var buckets;
       var bucket;
       var max;
+      
+      var friendlyNames = {
+        'location'        :   'Where they live...',
+        'industry'        :   'What they do...',
+        'network'         :   'Related to you...',
+        'language'        :   'Languages they speak...',
+        'current-company' :   'Where they work...',
+        'past-company'    :   'Where they used to work...',
+        'school'          :   'Where they go to school...'
+      };
+      
 
       if(facetData && facetData.buckets && facetData.buckets.values) {
         buckets = facetData.buckets.values;
@@ -64,6 +75,7 @@ define(function(require) {
         buckets = [];
       }
 
+      $('.name', this.el).html(friendlyNames[facetData.code.toLowerCase()]);
 
       max = _.max(buckets, function(b) {
         if(b && b.count) {

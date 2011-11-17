@@ -35,8 +35,10 @@ define(function(require) {
     update: function(bucketData) {
       var label = $('.label', this.el);
       var count = $('.count', this.el);
+      var graph = $('.graph', this.el);
       var data  = {};
       var addAction;
+      var percentage;
 
       if(!bucketData) {
         $(this.el).removeClass('active');
@@ -55,6 +57,10 @@ define(function(require) {
       } else {
         label.removeClass('selected');
       }
+
+      
+      if(graph[0]) graph[0].style.width = 
+        Math.min((bucketData.percentage * 100), 85) + '%';
 
       label.attr('data-bucket', JSON.stringify(data));
       label.html(bucketData.name);

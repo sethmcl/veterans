@@ -15,4 +15,16 @@
     STR   person.location.country.code      
 !}
 
-{person.firstName} {person.lastName}, {person.location.name}
+{!{#person.pictureUrl}
+    <img src="{person.pictureUrl}" width=80 height=80>
+{:else}
+    <img src="img/person.png" width=80 height=80>
+{/person.pictureUrl}!}
+
+<a href="{person.publicProfileUrl}" target="_blank">
+<img src="{person.pictureUrl}" width=80 height=80>
+<div class="details">
+    <span class='name'>{person.firstName} {person.lastName}</span><br/>
+    <span class='location'>{person.location.name}</span>
+</div>
+</a>

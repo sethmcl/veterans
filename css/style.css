@@ -1,8 +1,10 @@
 body {
-  background-color: #0073b2;
-  background-image: url('../img/large-background.png');
+  background-color: #000;
+  background-image: url('../img/large-background2.png');
+  background-repeat: no-repeat;
   color: #888;
   font-family: Helvetica, Verdana, Arial, sans-serif;
+  margin-top: 60px;
 }
 #main {width: 960px;margin:0 auto;}
 #logged-out {
@@ -26,7 +28,23 @@ body {
 #bucket-bar-view { 
   background-color: rgba(0, 0, 0, .6); 
   color: #fff;
+  height: 30px;
+  margin-bottom: 0;
+
+  background: #b5bdc8;
+  background: -moz-linear-gradient(top,  #b5bdc8 4%, #929393 17%, #383838 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(4%,#b5bdc8), color-stop(17%,#929393), color-stop(100%,#383838));
+  background: -webkit-linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
+  background: -o-linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
+  background: -ms-linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
+  background: linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#383838',GradientType=0 );
 }
+
+#bucket-bar-view ul { padding: 6px 0 0 20px; margin: 0; }
+#bucket-bar-view li { display: inline-block; margin-right: 25px; font-size: 80%; }
+#bucket-bar-view li a { text-decoration: none; color: rgba(253, 255, 89, 1); }
+#bucket-bar-view li a:hover { text-decoration: underline; color: rgba(255, 255, 255, 1); }
 
 /*
 #facet-list-view ul.facets li { display: inline-block; }
@@ -35,10 +53,14 @@ body {
 #facet-list-view ul.facet .label.selected { color: lime; }
 */
 
+#facet-list-view ul.facets .name { margin: 20px 0 0 20px; display: block; font-size: 120%; color: #fff; font-weight: normal;}
 #facet-list-view ul.facets > li { display: inline-block; margin-left: 5%;width: 30%; }
 #facet-list-view ul.facets > li:first-child {margin:0;}
 #facet-list-view ul.facet > li {margin: 7px 0;}
 #facet-list-view ul.facet a { display: block;font-size: 0.9em;height: 15px;line-height:15px;padding:5px 0 5px 10px;text-decoration: none;background:#666;border:1px solid #666;border-top:none;border-radius: 5px 0 0 5px;position:relative;}
+#facet-list-view ul.facet {
+  font-size: 90%;
+}
 #facet-list-view ul.facet .graph {
 	border-radius: 5px 0 0 5px;height: 25px;left: 0;position: absolute;top: 0;z-index: 1;width: 70%;
 	/*Gradient*/
@@ -50,8 +72,27 @@ body {
 	background: -ms-linear-gradient(top,  #4a4d54 1%,#000000 100%);
 	background: linear-gradient(top,  #4a4d54 1%,#000000 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a4d54', endColorstr='#000000',GradientType=0 );
+
+  -moz-transition-property: width;
+  -moz-transition-duration: 1100ms;
+  -moz-transition-timing-function: ease-in-out;
+  -webkit-transition-property: width;
+  -webkit-transition-duration: 1100ms;
+  -webkit-transition-timing-function: ease-in-out;
+  -o-transition-property: width;
+  -o-transition-duration: 1100ms;
+  -o-transition-timing-function: ease-in-out;
+  -ms-transition-property: width;
+  -ms-transition-duration: 1100ms;
+  -ms-transition-timing-function: ease-in-out;
+  transition-property: width;
+  transition-duration: 1100ms;
+  transition-timing-function: ease-in-out;
 }
 #facet-list-view ul.facet .label { color: #fff;display: inline-block;overflow: hidden;white-space: nowrap;width: 195px;position: relative;z-index: 2; }
+
+#facet-list-view ul.facet .label:hover,
+#facet-list-view ul.facet .label.selected { color: rgba(253, 255, 89, 1); }
 #facet-list-view .facet .count {float:right;font-size: 0.9em;color:#000;text-align: right;width: 40px;line-height:15px;position: relative;z-index: 2;}
 
 a { color: yellow; }
@@ -64,5 +105,13 @@ a { color: yellow; }
 
 #facet-list-view .facets,
 #facet-list-view .facet {padding:0;}
-#facet-list-view .facets {background:#000;}
+#facet-list-view .facets {background:rgba(0, 0, 0, .7); margin:0;}
 #facet-list-view .facet {margin: 20px;}
+
+#people-list-view .people { padding: 0 0 0 20px; }
+#people-list-view .people li { display: inline-block; width: 455px; height: 80px; background-color: rgba(0,0,0, .8); margin: 0 10px 10px 0; overflow: hidden; }
+#people-list-view .people img { float: left; }
+#people-list-view .people li .details { margin: 10px 0 0 95px; }
+#people-list-view .people li .name { font-size: 120%; color: #fff; }
+#people-list-view .people li .location { font-size: 100%; }
+#people-list-view .people li a { text-decoration: none; color: silver; }

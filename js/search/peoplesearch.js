@@ -74,7 +74,7 @@ define(function(require) {
       people.push(person);
     });
 
-    if(start === 0) {
+    if(start === 0 || !start) {
       searchResults.setPeople(people);
     } else {
       searchResults.appendPeople(people);

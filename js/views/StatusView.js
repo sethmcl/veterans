@@ -35,6 +35,13 @@ define(function(require) {
     },
     onSearchReturned: function() {
       this.context.peopleSearchResults = peopleSearchResults.toJSON();
+
+      if(this.context.peopleSearchResults.peopleCount >= 1000) {
+        this.context.countText = 'more than 1000';
+      } else {
+        this.context.countText = this.context.peopleSearchResults.peopleCount;
+      }
+      
       this.context.searchInProgress = false;      
       this.render();
     },

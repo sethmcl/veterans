@@ -65,14 +65,21 @@ define(function(require) {
       }
 
       max = _.max(buckets, function(b) {
-        return b.count;
+        if(b && b.count) {
+          return b.count;
+        } else {
+          return 0;
+        }        
       }).count;
             
       _.each(this.bucketViews, function(view, idx) {
         bucket = buckets[idx];
-        bucket.facetCode = facetData.code;
-        bucket.percentage = bucket.count / max;
-        view.update(bucket);        
+
+        if(bucket) {
+          bucket.facetCode = facetData.code;
+          bucket.percentage = bucket.count / max;
+          view.update(bucket);        
+        }
       });        
     },
     toggleBucket: function(e) {

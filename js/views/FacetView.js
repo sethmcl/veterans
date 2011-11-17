@@ -54,12 +54,22 @@ define(function(require) {
       return this;
     },
     update: function(facetData) {      
-      var buckets = facetData.buckets.values;
-      var bucket;      
+      var buckets;
+      var bucket;
+      var max;
+
+      if(facetData && facetData.buckets && facetData.buckets.values) {
+        buckets = facetData.buckets.values;
+      }
+      
+      max = _.max(buckets, function(b) {
+        return b.count;
+      }).count;
             
       _.each(this.bucketViews, function(view, idx) {
         bucket = buckets[idx];
         bucket.facetCode = facetData.code;
+        bucket.percentage = bucket.count / max;
         view.update(bucket);        
       });        
     },

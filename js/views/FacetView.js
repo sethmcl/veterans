@@ -60,8 +60,10 @@ define(function(require) {
 
       if(facetData && facetData.buckets && facetData.buckets.values) {
         buckets = facetData.buckets.values;
+      } else {
+        buckets = [];
       }
-      
+
       max = _.max(buckets, function(b) {
         return b.count;
       }).count;

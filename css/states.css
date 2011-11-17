@@ -1,0 +1,23 @@
+/*
+#logged-in { 
+  display: none;
+}
+
+#logged-in.active {
+  display: block;
+}
+
+#logged-out {
+  display: none;
+}
+
+#logged-out.active {
+  display: block;
+}
+*/
+
+ul.facet li { display: none; }
+ul.facet li.active { display: block; }
+
+#show-more { display: none; }
+#show-more.active { display: block; }

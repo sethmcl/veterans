@@ -1,0 +1,6 @@
+<span style="color:black;">
+  {part1} {part2}
+</span>
+
+<span class="swap" style="font-family:sans-serif; color:blue; cursor:pointer;">[[swap]]</span>
+<span class="delete" style="cursor:pointer; color:red; font-family:sans-serif;">[delete]</span>

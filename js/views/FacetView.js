@@ -64,13 +64,20 @@ define(function(require) {
         buckets = [];
       }
 
+
       max = _.max(buckets, function(b) {
         if(b && b.count) {
           return b.count;
         } else {
           return 0;
         }        
-      }).count;
+      });
+
+      if(max && max.count) {
+        max = max.count;
+      } else {
+        max = 0;
+      }     
             
       _.each(this.bucketViews, function(view, idx) {
         bucket = buckets[idx];

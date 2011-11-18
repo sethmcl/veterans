@@ -59,7 +59,27 @@ define(function(require) {
 
       _.each(people, function(person) {
         peopleCard = new PeopleCardView();
+
         peopleCard.context.person = person;
+
+        switch(person.degree) {
+          case 0:
+            person['degree-myself'] = true;
+            break;
+          case 1:
+            person['degree-first'] = true;
+            break;
+          case 2:
+            person['degree-second'] = true;
+            break;
+          case 3:
+            person['degree-third'] = true;
+            break;
+          default:
+            person['degree-oon'] = true;
+            break;
+        }      
+        
         ul.append(peopleCard.render().el);        
       });
 

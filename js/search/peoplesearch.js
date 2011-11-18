@@ -105,6 +105,7 @@ define(function(require) {
     url = addStringValue(url,   'start');
     url = addStringValue(url,   'count');
     url = addStringValue(url,   'sort');
+    url = addStringValue(url,   'visibility');
     url = addArrayValue(url,    'facets');
 
     url = addCohortValue(url,   'cohorts-location',         'location');

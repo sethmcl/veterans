@@ -18,6 +18,7 @@ define(function(require) {
       'start'                   :   null,
       'count'                   :   null,
       'sort'                    :   null,
+      'visibility'              :   'full',
       'facets'                  :   [],
       'cohorts-location'        :   [],
       'cohorts-industry'        :   [],

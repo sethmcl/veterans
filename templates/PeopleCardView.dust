@@ -16,15 +16,23 @@
 !}
 
 {!{#person.pictureUrl}
-    <img src="{person.pictureUrl}" width=80 height=80>
+    <img src="{person.pictureUrl}">
 {:else}
-    <img src="img/person.png" width=80 height=80>
+    <img src="img/person.png" />
 {/person.pictureUrl}!}
 
-<a href="{person.publicProfileUrl}" target="_blank">
-<img src="{person.pictureUrl}" width=80 height=80>
-<div class="details">
-    <span class='name'>{person.firstName} {person.lastName}</span><br/>
-    <span class='location'>{person.location.name}</span>
-</div>
+<a href="{person.publicProfileUrl}" target="_blank" class="profile-link">
+<img src="{person.pictureUrl}" />
+<span class="details">
+    <span class="name">{person.firstName} {person.lastName}</span>
+    <span class="headline">{person.headline}</span>
+    <span class="location">{person.location.name}</span>
+</span>
 </a>
+<div class="action-bar">
+	{! TO-DO: based on distance value show connect or not or edit profile!}
+	{#person.distance}
+		<a href="#{person.distance}" class="connect-action">Connect</a>
+	{/person.distance}
+	<span class="options">{! place-holder for shared connections !}</span>
+</div>

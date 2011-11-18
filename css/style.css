@@ -110,28 +110,39 @@ a { color: yellow; }
 
 #people-list-view { background-color: rgba(0, 0, 0, .6); }
 #people-list-view .people { margin-top: 0; padding: 0 0 0 20px; }
-#people-list-view .people li { display: inline-block; width: 455px; height: 80px; 1background-color: rgba(0,0,0, .8); margin: 0 10px 30px 0; overflow: hidden; }
-#people-list-view .people img { float: left; }
-#people-list-view .people li .details { margin: 10px 0 0 95px; }
-#people-list-view .people li .name { font-size: 120%; color: #fff; }
-#people-list-view .people li .location { font-size: 100%; }
-#people-list-view .people li a { text-decoration: none; color: silver; }
-#people-list-view .people li a:hover { text-decoration: underline; }
+#people-list-view .people li { display: inline-block; width: 452px; height: 125px; background-color: rgba(120, 120, 120, 0.6); margin: 0 15px 15px 0; overflow: hidden; }
+#people-list-view .people img { float: left;width: 80px;height: 80px;border: 1px solid #666;padding: 1px; }
+#people-list-view .people li .details { margin: 0 0 0 100px;display: block; }
+#people-list-view .people li .name { font:1.1em Georgia,Serif; color: #fff;display: block;max-height: 42px;line-height:20px;overflow: hidden; }
+#people-list-view .people li .name:hover {text-decoration: underline;}
+#people-list-view .people li .headline { font-size: 0.85em;color: #fff;display: block;margin-top: 5px;max-height: 32px;line-height:16px;overflow: hidden; }
+#people-list-view .people li .location { font-size: 0.85em;color: #ccc;display: block;overflow: hidden;height: 16px;line-height: 16px; }
+#people-list-view .people li .profile-link { text-decoration: none; color: silver;display: block;overflow: hidden;margin: 7px;height: 84px; }
 
-#show-more { width: 100%; height: 30px; font-size: 100%; 
-  cursor: pointer;
-border:0;
-color: #fff;
-background: #b5bdc8;
-  background: -moz-linear-gradient(top,  #b5bdc8 4%, #929393 17%, #383838 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(4%,#b5bdc8), color-stop(17%,#929393), color-stop(100%,#383838));
-  background: -webkit-linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
-  background: -o-linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
-  background: -ms-linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
-  background: linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#383838',GradientType=0 );
+#people-list-view .people li .action-bar {height: 25px;line-height: 25px;border-bottom:1px solid #333;border-top:1px solid #666;
+	/*Gradient*/
+	background: #4a4d54;
+	background: -moz-linear-gradient(top,  #4a4d54 1%, #000000 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#4a4d54), color-stop(100%,#000000));
+	background: -webkit-linear-gradient(top,  #4a4d54 1%,#000000 100%);
+	background: -o-linear-gradient(top,  #4a4d54 1%,#000000 100%);
+	background: -ms-linear-gradient(top,  #4a4d54 1%,#000000 100%);
+	background: linear-gradient(top,  #4a4d54 1%,#000000 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a4d54', endColorstr='#000000',GradientType=0 );
+}
+#people-list-view .people .action-bar a{float:left;color:#fff;height:25px;line-height:25px;font-size: 0.8em;font-weight: bold;text-decoration: none;padding: 0 20px;border-right:1px solid #000;}
+#people-list-view .people .action-bar .options {border-left: 1px solid #454545;float: left;height: 25px;line-height: 25px;padding: 0 15px;}
 
- ;}
+#show-more { width: 100%; height: 30px; font-size: 100%; cursor: pointer;border:0;color: #fff;
+	background: #b5bdc8;
+	background: -moz-linear-gradient(top,  #b5bdc8 4%, #929393 17%, #383838 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(4%,#b5bdc8), color-stop(17%,#929393), color-stop(100%,#383838));
+	background: -webkit-linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
+	background: -o-linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
+	background: -ms-linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
+	background: linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#383838',GradientType=0 );
+}
 
  #show-more:hover { color:rgba(253, 255, 89, 1);}
 

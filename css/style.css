@@ -57,7 +57,7 @@ body {
 #facet-list-view ul.facets > li { display: inline-block; margin-left: 5%;width: 30%; }
 #facet-list-view ul.facets > li:first-child {margin:0;}
 #facet-list-view ul.facet > li {margin: 7px 0;}
-#facet-list-view ul.facet a { display: block;font-size: 0.9em;height: 15px;line-height:15px;padding:5px 0 5px 10px;text-decoration: none;background:#666;border:1px solid #666;border-top:none;border-radius: 5px 0 0 5px;position:relative;}
+#facet-list-view ul.facet a { display: block;font-size: 0.9em;height: 15px;line-height:15px;padding:5px 0 5px 10px;text-decoration: none;background:#666;border:1px solid #666;border-top:none;border-radius: 5px;position:relative;}
 #facet-list-view ul.facet {
   font-size: 90%;
 }
@@ -89,11 +89,11 @@ body {
   transition-duration: 1100ms;
   transition-timing-function: ease-in-out;
 }
-#facet-list-view ul.facet .label { color: #fff;display: inline-block;overflow: hidden;white-space: nowrap;width: 195px;position: relative;z-index: 2; }
+#facet-list-view ul.facet .label { color: #fff;display: inline-block;overflow: hidden;white-space: nowrap;width: 190px;position: relative;z-index: 2; }
 
 #facet-list-view ul.facet .label:hover,
 #facet-list-view ul.facet .label.selected { color: rgba(253, 255, 89, 1); }
-#facet-list-view .facet .count {float:right;font-size: 0.9em;color:#000;text-align: right;width: 40px;line-height:15px;position: relative;z-index: 2;}
+#facet-list-view .facet .count {float:right;font-size: 0.9em;color:#000;text-align: right;width: 40px;line-height:15px;position: relative;z-index: 2;margin-right:5px;}
 
 a { color: yellow; }
 

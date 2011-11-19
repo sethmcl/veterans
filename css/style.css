@@ -54,7 +54,7 @@ body {
 */
 
 #facet-list-view ul.facets .name { margin: 20px 0 0 20px; display: block; font-size: 120%; color: #fff; font-weight: normal;}
-#facet-list-view ul.facets > li { display: inline-block; margin-left: 5%;width: 30%; }
+#facet-list-view ul.facets > li { display: inline-block; margin-left: 5%;width: 30%; vertical-align: top;}
 #facet-list-view ul.facets > li:first-child {margin:0;}
 #facet-list-view ul.facet > li {margin: 7px 0;}
 #facet-list-view ul.facet a { display: block;font-size: 0.9em;height: 15px;line-height:15px;padding:5px 0 5px 10px;text-decoration: none;background:#666;border:1px solid #666;border-top:none;border-radius: 5px;position:relative;}

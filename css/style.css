@@ -109,8 +109,8 @@ a { color: yellow; }
 #facet-list-view .facet {margin: 20px;}
 
 #people-list-view { background-color: rgba(0, 0, 0, .6); }
-#people-list-view .people { margin-top: 0; padding: 0 0 0 20px; }
-#people-list-view .people li { display: inline-block; width: 452px; height: 125px; background-color: rgba(120, 120, 120, 0.6); margin: 0 15px 15px 0; overflow: hidden; }
+#people-list-view .people { margin-top: 0; padding: 0 0 0 20px;overflow: hidden; }
+#people-list-view .people li { float: left; width: 452px; height: 125px; background-color: rgba(120, 120, 120, 0.6); margin: 0 15px 15px 0; overflow: hidden; }
 #people-list-view .people img { float: left;width: 80px;height: 80px;border: 1px solid #666;padding: 1px; }
 #people-list-view .people li .details { margin: 0 0 0 100px;display: block; }
 #people-list-view .people li .name { font:1.1em Georgia,Serif; color: #fff;display: block;max-height: 42px;line-height:20px;overflow: hidden; }

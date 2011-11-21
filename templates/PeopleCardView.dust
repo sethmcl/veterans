@@ -36,36 +36,43 @@
 {/person.pictureUrl}
 
 <span class="details">
-    <span class="name">{person.firstName} {person.lastName}</span>
+	<span class="name">
+		<span class="person-name-link">{person.firstName} {person.lastName}</span>
 
-    {?person.degreeMyself}
-    You
-    {/person.degreeMyself}
+		{?person.degreeOon}
+		{:else}
+			<span class="network-degree">
+			{?person.degreeMyself}
+				You
+			{/person.degreeMyself}
+		
+			{?person.degreeFirst}
+				1st
+			{/person.degreeFirst}
+		
+			{?person.degreeSecond}
+				2nd
+			{/person.degreeSecond}
+		
+			{?person.degreeThird}
+				3rd
+			{/person.degreeThird}
+			</span>
+		{/person.degreeOon}
 
-    {?person.degreeFirst}
-    1st
-    {/person.degreeFirst}
+	</span>
 
-    {?person.degreeSecond}
-    2nd
-    {/person.degreeSecond}
-
-    {?person.degreeThree}
-    3rd
-    {/person.degreeThree}
-
-    {?person.degreeOon}    
-    {/person.degreeOon}
-
-
-    <span class="headline">{person.headline}</span>
-    <span class="location">{person.location.name}</span>
+	<span class="headline">{person.headline}</span>
+	<span class="location">{person.location.name}</span>
 </span>
 </a>
 <div class="action-bar">
 	{! TO-DO: based on distance value show connect or not or edit profile!}
-	{#person.distance}
-		<a href="#{person.distance}" class="connect-action">Connect</a>
-	{/person.distance}
+	{?person.degreeMyself}
+		<a href="http://www.linkedin.com/profile/edit" target="_blank" class="connect-action">Edit Profile</a>
+	{:else}
+		<a href="#" class="connect-action">Connect</a>
+	{/person.degreeMyself}
+
 	<span class="options">{! place-holder for shared connections !}</span>
 </div>

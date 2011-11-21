@@ -114,7 +114,7 @@ a { color: yellow; }
 #people-list-view .people img { float: left;width: 80px;height: 80px;border: 1px solid #666;padding: 1px; }
 #people-list-view .people li .details { margin: 0 0 0 100px;display: block; }
 #people-list-view .people li .name { font:1.1em Georgia,Serif; color: #fff;display: block;max-height: 42px;line-height:20px;overflow: hidden; }
-#people-list-view .people li .name:hover {text-decoration: underline;}
+#people-list-view .people li .person-name-link:hover {text-decoration: underline;}
 #people-list-view .people li .headline { font-size: 0.85em;color: #fff;display: block;margin-top: 5px;max-height: 32px;line-height:16px;overflow: hidden; }
 #people-list-view .people li .location { font-size: 0.85em;color: #ccc;display: block;overflow: hidden;height: 16px;line-height: 16px; }
 #people-list-view .people li .profile-link { text-decoration: none; color: silver;display: block;overflow: hidden;margin: 7px;height: 84px; }
@@ -133,6 +133,13 @@ a { color: yellow; }
 #people-list-view .people .action-bar a{float:left;color:#fff;height:25px;line-height:25px;font-size: 0.8em;font-weight: bold;text-decoration: none;padding: 0 20px;border-right:1px solid #000;}
 #people-list-view .people .action-bar .options {border-left: 1px solid #454545;float: left;height: 25px;line-height: 25px;padding: 0 15px;}
 
+.network-degree {
+	background: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#c7ebf6), to(white));
+	background: -moz-linear-gradient(top, #c7ebf6, white);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7ebf6', endColorstr='#ffffff');
+	border: 1px solid #39c;-moz-border-radius: 6px;-o-border-radius: 6px;-webkit-border-radius: 6px;border-radius: 6px;color: #39c;display: inline-block;font:bold 11px arial,sans-serif;font-style: normal;line-height: 12px;margin: -4px 0 0 5px;min-width: 20px;padding: 0 4px;text-align: center;vertical-align: middle;
+}
 #show-more { width: 100%; height: 30px; font-size: 90%; cursor: pointer;border:0;color: #fff;
 	/*Gradient*/
   background: #4a4d54;

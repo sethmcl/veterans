@@ -57,7 +57,8 @@ define(function(require) {
       var buckets;
       var bucket;
       var max;
-      
+      var bucketsDisplayedCount = 0;
+
       var friendlyNames = {
         'location'        :   'Where they live...',
         'industry'        :   'What they do...',
@@ -67,6 +68,8 @@ define(function(require) {
         'past-company'    :   'Where they used to work...',
         'school'          :   'Where they go to school...'
       };
+
+      var exemptCodes = [ 'us:0' ];
       
 
       if(facetData && facetData.buckets && facetData.buckets.values) {
@@ -78,7 +81,7 @@ define(function(require) {
       $('.name', this.el).html(friendlyNames[facetData.code.toLowerCase()]);
 
       max = _.max(buckets, function(b) {
-        if(b && b.count) {
+        if(b && b.count && exemptCodes.indexOf(b.code) === -1) {
           return b.count;
         } else {
           return 0;
@@ -94,10 +97,11 @@ define(function(require) {
       _.each(this.bucketViews, function(view, idx) {
         bucket = buckets[idx];
 
-        if(bucket) {
+        if(bucket && exemptCodes.indexOf(bucket.code) === -1 && bucketsDisplayedCount < 9) {
           bucket.facetCode = facetData.code;
           bucket.percentage = bucket.count / max;
-          view.update(bucket);        
+          view.update(bucket);    
+          bucketsDisplayedCount++;    
         }
       });        
     },

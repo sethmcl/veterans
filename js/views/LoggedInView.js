@@ -20,7 +20,7 @@ define(function(require) {
       
     },
     initialize: function(config) {
-      _.bindAll(this, 'render', 'unrender', 'onDustRendered'); 
+      _.bindAll(this, 'render', 'unrender', 'dustCb'); 
            
       this.views = {
         'statusView'    : new StatusView(),
@@ -34,9 +34,9 @@ define(function(require) {
     },
     render: function() {
       log('rendering loggedinview');
-      dust.render(templateName, this.context, this.onDustRendered);
+      dust.render(templateName, this.context, this.dustCb);
     },
-    onDustRendered: function(err, out) {
+    dustCb: function(err, out) {
       $(this.el).html(out);
       
       $('#head-view', this.el).html(this.views['headView'].render().el);      

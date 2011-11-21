@@ -54,7 +54,7 @@ body {
 */
 
 #facet-list-view ul.facets .name { margin: 20px 0 0 20px; display: block; font-size: 120%; color: #fff; font-weight: normal;}
-#facet-list-view ul.facets > li { display: inline-block; margin-left: 5%;width: 30%; }
+#facet-list-view ul.facets > li { display: inline-block; margin-left: 5%;width: 30%; vertical-align: top;}
 #facet-list-view ul.facets > li:first-child {margin:0;}
 #facet-list-view ul.facet > li {margin: 7px 0;}
 #facet-list-view ul.facet a { display: block;font-size: 0.9em;height: 15px;line-height:15px;padding:5px 0 5px 10px;text-decoration: none;background:#666;border:1px solid #666;border-top:none;border-radius: 5px;position:relative;}
@@ -133,15 +133,16 @@ a { color: yellow; }
 #people-list-view .people .action-bar a{float:left;color:#fff;height:25px;line-height:25px;font-size: 0.8em;font-weight: bold;text-decoration: none;padding: 0 20px;border-right:1px solid #000;}
 #people-list-view .people .action-bar .options {border-left: 1px solid #454545;float: left;height: 25px;line-height: 25px;padding: 0 15px;}
 
-#show-more { width: 100%; height: 30px; font-size: 100%; cursor: pointer;border:0;color: #fff;
-	background: #b5bdc8;
-	background: -moz-linear-gradient(top,  #b5bdc8 4%, #929393 17%, #383838 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(4%,#b5bdc8), color-stop(17%,#929393), color-stop(100%,#383838));
-	background: -webkit-linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
-	background: -o-linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
-	background: -ms-linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
-	background: linear-gradient(top,  #b5bdc8 4%,#929393 17%,#383838 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#383838',GradientType=0 );
+#show-more { width: 100%; height: 30px; font-size: 90%; cursor: pointer;border:0;color: #fff;
+	/*Gradient*/
+  background: #4a4d54;
+  background: -moz-linear-gradient(top,  #4a4d54 1%, #000000 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#4a4d54), color-stop(100%,#000000));
+  background: -webkit-linear-gradient(top,  #4a4d54 1%,#000000 100%);
+  background: -o-linear-gradient(top,  #4a4d54 1%,#000000 100%);
+  background: -ms-linear-gradient(top,  #4a4d54 1%,#000000 100%);
+  background: linear-gradient(top,  #4a4d54 1%,#000000 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a4d54', endColorstr='#000000',GradientType=0 );
 }
 
  #show-more:hover { color:rgba(253, 255, 89, 1);}

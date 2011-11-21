@@ -12,8 +12,7 @@ define(function(require) {
                         ].join('');
 
   //watch the input for changes
-  searchInput.bind('change', executeSearch);  
-
+  searchInput.bind('change', executeSearch);
   channel.sub('search', 'get-more-people', fetchMore);
 
   function executeSearch() {
@@ -52,9 +51,9 @@ define(function(require) {
     var start   = results.people['_start'];
     var count   = results.people['_count'];
     var total   = results.people['_total'];
-    var hasMore = true;
+    var hasMore = false;
 
-    if(start + count >= total) hasMore = false;
+    if(start + count <= total) hasMore = true;
 
     searchResults.set({
       start       : start,

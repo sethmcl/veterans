@@ -64,19 +64,19 @@ define(function(require) {
 
         switch(person.degree) {
           case 0:
-            person['degree-myself'] = true;
+            person['degreeMyself'] = true;
             break;
           case 1:
-            person['degree-first'] = true;
+            person['degreeFirst'] = true;
             break;
           case 2:
-            person['degree-second'] = true;
+            person['degreeSecond'] = true;
             break;
           case 3:
-            person['degree-third'] = true;
+            person['degreeThird'] = true;
             break;
           default:
-            person['degree-oon'] = true;
+            person['degreeOon'] = true;
             break;
         }      
         

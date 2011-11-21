@@ -12,19 +12,52 @@
     OBJ   person.location
     STR   person.location.name
     OBJ   person.location.country
-    STR   person.location.country.code      
+    STR   person.location.country.code    
+    
+    BOOL  person.degreeMyself
+    BOOL  person.degreeFirst
+    BOOL  person.degreeSecond
+    BOOL  person.degreeThird
+    BOOL  person.degreeOon
 !}
 
-{!{#person.pictureUrl}
+{!#person.pictureUrl}
     <img src="{person.pictureUrl}">
 {:else}
     <img src="img/person.png" />
-{/person.pictureUrl}!}
+{/person.pictureUrl!}
 
 <a href="{person.publicProfileUrl}" target="_blank" class="profile-link">
-<img src="{person.pictureUrl}" />
+
+{?person.pictureUrl}
+    <img src="{person.pictureUrl}">
+{:else}
+    <img src="img/person.png" />
+{/person.pictureUrl}
+
 <span class="details">
     <span class="name">{person.firstName} {person.lastName}</span>
+
+    {?person.degreeMyself}
+    You
+    {/person.degreeMyself}
+
+    {?person.degreeFirst}
+    1st
+    {/person.degreeFirst}
+
+    {?person.degreeSecond}
+    2nd
+    {/person.degreeSecond}
+
+    {?person.degreeThree}
+    3rd
+    {/person.degreeThree}
+
+    {?person.degreeOon}    
+    {/person.degreeOon}
+
+
     <span class="headline">{person.headline}</span>
     <span class="location">{person.location.name}</span>
 </span>

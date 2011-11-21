@@ -12,11 +12,7 @@ define(function(require) {
     initialize: function() {
       _.bindAll(this, 'render', 'unrender', 'onSearchReturned', 'onSearchBegin');    
 
-      this.context = {
-        // searchInProgress: false,
-        // peopleCount: 0
-      };
-
+      this.context = {};
       channel.sub('search', 'search-returned', this.onSearchReturned);  
       channel.sub('search', 'search-begin', this.onSearchBegin);  
     },    

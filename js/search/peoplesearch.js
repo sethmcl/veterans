@@ -52,9 +52,9 @@ define(function(require) {
     var start   = results.people['_start'];
     var count   = results.people['_count'];
     var total   = results.people['_total'];
-    var hasMore = true;
+    var hasMore = false;
 
-    if(start + count >= total) hasMore = false;
+    if(start + count <= total) hasMore = true;
 
     searchResults.set({
       start       : start,

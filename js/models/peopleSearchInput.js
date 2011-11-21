@@ -49,7 +49,7 @@ define(function(require) {
       this.removeCohort(e.data.facetCode, e.data.code);
     },
 
-    addCohort: function(type, value) {
+    addCohort: function(type, value, silent) {
       var key     = 'cohorts-'+type;
       var values  = this.get(key);
       var data    = {};
@@ -60,14 +60,17 @@ define(function(require) {
           data[key] = values;     
           data.start = 0;               
           this.set(data);
-          this.trigger('change');
+          
+          if(!silent) {
+            this.trigger('change');
+          }
         }
       }
 
       return this;
     },
 
-    removeCohort: function(type, value) {
+    removeCohort: function(type, value, silent) {
       var key     = 'cohorts-'+type;
       var values  = this.get(key);
       var data    = {};
@@ -78,13 +81,16 @@ define(function(require) {
         data[key] = values;
         data.start = 0;
         this.set(data);
-        this.trigger('change');
+        
+        if(!silent) {
+          this.trigger('change');
+        }
       }
 
       return this;
     },
 
-    addFacets: function(facets) {
+    addFacets: function(facets, silent) {
       var key    =  'facets';
       var values =  this.get(key);
       var data   =  {};
@@ -100,13 +106,16 @@ define(function(require) {
       if(dirty) {
         data[key] = values;
         this.set(data);
-        this.trigger('change');
+
+        if(!silent) {
+          this.trigger('change');
+        }
       }
       
       return this;
     },
 
-    removeFacet: function(facetName) {
+    removeFacet: function(facetName, silent) {
       var key    =  'facets';
       var values =  this.get(key);
       var data   =  {};
@@ -116,7 +125,10 @@ define(function(require) {
         values.splice(idx, 1);
         data[key] = values;
         this.set(data);
-        this.trigger('change');
+        
+        if(!silent) {
+          this.trigger('change');
+        }
       }
 
       return this;

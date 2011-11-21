@@ -29,8 +29,8 @@ define(function(require) {
 
   //Render logged-in view
   function onLinkedInAuth() {
-    peopleSearchInput.addFacets(['location', 'industry', 'current-company']);
-    peopleSearchInput.set({
+    peopleSearchInput.addFacets(['location', 'industry', 'current-company'], true);
+    peopleSearchInput.set({      
       'cohorts-past-company'  : [1223, 1335, 2039, 4425, 1226, 157235, 1224, 1230, 1333, 1343, 1938783, 1400617, 1592500, 1233200, 2061386, 462659, 1022991, 1877670, 377572, 2010213, 1061746],
       'keywords'              : 'united states'
     }); 

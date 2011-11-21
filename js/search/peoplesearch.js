@@ -12,8 +12,7 @@ define(function(require) {
                         ].join('');
 
   //watch the input for changes
-  searchInput.bind('change', executeSearch);  
-
+  searchInput.bind('change', executeSearch);
   channel.sub('search', 'get-more-people', fetchMore);
 
   function executeSearch() {

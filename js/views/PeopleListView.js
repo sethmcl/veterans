@@ -62,7 +62,7 @@ define(function(require) {
 
         peopleCard.context.person = person;
 
-        switch(person.degree) {
+        switch(person.distance) {
           case 0:
             person['degreeMyself'] = true;
             break;
@@ -79,7 +79,7 @@ define(function(require) {
             person['degreeOon'] = true;
             break;
         }      
-        
+                
         ul.append(peopleCard.render().el);        
       });
 

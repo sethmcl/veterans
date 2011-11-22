@@ -38,7 +38,7 @@
 <span class="details">
 	<span class="name">
 		<span class="person-name-link">{person.firstName} {person.lastName}</span>
-
+    {person.distanceFirst}
 		{?person.degreeOon}
 		{:else}
 			<span class="network-degree">

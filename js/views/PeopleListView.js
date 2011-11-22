@@ -78,6 +78,11 @@ define(function(require) {
           default:
             person['degreeOon'] = true;
             break;
+        }
+        
+        if(person.firstName.toUpperCase() === 'PRIVATE') {
+          person.firstName = 'LinkedIn';
+          person.lastName = 'Member';
         }      
                 
         ul.append(peopleCard.render().el);        

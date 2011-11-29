@@ -71,7 +71,7 @@
 	{?person.degreeMyself}
 		<a href="http://www.linkedin.com/profile/edit" target="_blank" class="connect-action">Edit Profile</a>
 	{:else}
-		<a href="#" class="connect-action">Connect</a>
+		<a href="{person.publicProfileUrl}" class="connect-action">Connect</a>
 	{/person.degreeMyself}
 
 	<span class="options">{! place-holder for shared connections !}</span>

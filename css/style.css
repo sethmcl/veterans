@@ -61,6 +61,7 @@ body {
 #facet-list-view ul.facet {
   font-size: 90%;
 }
+
 #facet-list-view ul.facet .graph {
 	border-radius: 5px 0 0 5px;height: 25px;left: 0;position: absolute;top: 0;z-index: 1;width: 70%;
 	/*Gradient*/
@@ -91,8 +92,20 @@ body {
 }
 #facet-list-view ul.facet .label { color: #fff;display: inline-block;overflow: hidden;white-space: nowrap;width: 190px;position: relative;z-index: 2; }
 
-#facet-list-view ul.facet .label:hover,
-#facet-list-view ul.facet .label.selected { color: rgba(253, 255, 89, 1); }
+#facet-list-view ul.facet .selected .graph {
+	/*Gradient*/
+	background: #4a4d54;
+	background: -moz-linear-gradient(top,  #473110 1%, #835C0F 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#473110), color-stop(100%,#835C0F));
+	background: -webkit-linear-gradient(top,  #473110 1%,#835C0F 100%);
+	background: -o-linear-gradient(top,  #473110 1%,#835C0F 100%);
+	background: -ms-linear-gradient(top,  #473110 1%,#835C0F 100%);
+	background: linear-gradient(top,  #473110 1%,#835C0F 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#473110', endColorstr='#835C0F',GradientType=0 );
+}
+
+#facet-list-view ul.facet .label:hover { color: #DF9202; }
+#facet-list-view ul.facet .selected .label { color: #fff; }
 #facet-list-view .facet .count {float:right;font-size: 0.9em;color:#000;text-align: right;width: 40px;line-height:15px;position: relative;z-index: 2;margin-right:5px;}
 
 a { color: yellow; }
@@ -113,7 +126,7 @@ a { color: yellow; }
 #people-list-view .people li { float: left; width: 452px; height: 125px; background-color: rgba(120, 120, 120, 0.6); margin: 0 15px 15px 0; overflow: hidden; }
 #people-list-view .people img { float: left;width: 80px;height: 80px;border: 1px solid #666;padding: 1px; }
 #people-list-view .people li .details { margin: 0 0 0 100px;display: block; }
-#people-list-view .people li .name { font:1.1em Georgia,Serif; color: #fff;display: block;max-height: 42px;line-height:20px;overflow: hidden; }
+#people-list-view .people li .name { font:1.1em Georgia,Serif; color: #fff;display: block;max-height: 42px;line-height:21px;overflow: hidden; }
 #people-list-view .people li .person-name-link:hover {text-decoration: underline;}
 #people-list-view .people li .headline { font-size: 0.85em;color: #fff;display: block;margin-top: 5px;max-height: 32px;line-height:16px;overflow: hidden; }
 #people-list-view .people li .location { font-size: 0.85em;color: #ccc;display: block;overflow: hidden;height: 16px;line-height: 16px; }
@@ -153,4 +166,3 @@ a { color: yellow; }
 }
 
  #show-more:hover { color:rgba(253, 255, 89, 1);}
-

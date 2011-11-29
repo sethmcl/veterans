@@ -52,11 +52,7 @@ define(function(require) {
         name      : bucketData.name
       };
 
-      if(bucketData.selected) {
-        label.addClass('selected');
-      } else {
-        label.removeClass('selected');
-      }
+      $(this.el).toggleClass('selected', bucketData.selected);
 
       
       if(graph[0]) graph[0].style.width = 

@@ -66,7 +66,7 @@ define(function(require) {
         'language'        :   'Languages they speak...',
         'current-company' :   'Where they work...',
         'past-company'    :   'Where they used to work...',
-        'school'          :   'Where they go to school...'
+        'school'          :   'Where they went to school...'
       };
 
       var exemptCodes = [ 'us:0' ];

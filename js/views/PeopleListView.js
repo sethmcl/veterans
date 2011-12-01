@@ -28,25 +28,23 @@ define(function(require) {
       channel.sub('search', 'search-returned', this.onSearchReturned);  
       channel.sub('search', 'search-begin', this.onSearchBegin);        
     },    
-    render: function() {      
+    render: function() {
       dust.render(templateName, this.context, this.dustCb);
       return this;
     },    
     dustCb: function(err, out) {
       $(this.el).html(out);
-      
       var ul = $('ul', this.el);
 
       _.each(this.peopleCardViews, function(view) {
         ul.append(view.render().el);
-      });      
+      });
     },
     unrender: function() {
       $(this.el).remove();
       return this;
     },
     onSearchReturned: function() {
-      
       var data    = peopleSearchResults.toJSON();
       var people  = data.people;
       var hasMore = data.hasMore;

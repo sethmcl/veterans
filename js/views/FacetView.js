@@ -11,7 +11,7 @@ define(function(require) {
   return Backbone.View.extend({  
     tagName: 'li',  
     events: {
-      'click li'    :   'toggleBucket'
+      'click li a'    :   'toggleBucket'
     },
     initialize: function() {
       _.bindAll(
@@ -108,7 +108,7 @@ define(function(require) {
     toggleBucket: function(e) {
       log('facet bucket clicked');
       var target    = $(e.target);
-      var dataJSON  = target.attr('data-bucket');
+      var dataJSON  = target.closest('a').attr('data-bucket');
       var data;
 
       try {

@@ -112,7 +112,7 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#473110', endColorstr='#835C0F',GradientType=0 );
 }
 
-#facet-list-view ul.facet .label:hover { color: #DF9202; }
+#facet-list-view ul.facet a:hover .label { color: #DF9202; }
 #facet-list-view ul.facet .selected .label { color: #fff; }
 #facet-list-view .facet .count {float:right;font-size: 0.9em;color:#000;text-align: right;width: 40px;line-height:15px;position: relative;z-index: 2;margin-right:5px;}
 

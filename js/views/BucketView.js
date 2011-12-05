@@ -58,7 +58,7 @@ define(function(require) {
       if(graph[0]) graph[0].style.width = 
         Math.min((bucketData.percentage * 100), 85) + '%';
 
-      label.attr('data-bucket', JSON.stringify(data));
+      label.closest('a').attr('data-bucket', JSON.stringify(data));
       label.html(bucketData.name);
       count.html(bucketData.count);
 

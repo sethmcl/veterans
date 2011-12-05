@@ -34,17 +34,25 @@ define(function(require) {
     },
     render: function() {
       log('rendering loggedinview');
+
       dust.render(templateName, this.context, this.dustCb);
     },
     dustCb: function(err, out) {
       $(this.el).html(out);
-      
-      $('#head-view', this.el).html(this.views['headView'].render().el);      
+
+
+      $('#head-view', this.el).html(this.views['headView'].render().el);
       $('#facet-list-view', this.el).html(this.views['facetListView'].render().el);
       $('#status-view', this.el).html(this.views['statusView'].render().el);
       $('#people-list-view', this.el).html(this.views['peopleListView'].render().el);
       $('#bucket-bar-view', this.el).html(this.views['bucketBarView'].render().el);
-      
+      /*
+		console.log($('#people-list-view', this.el));
+		console.log(this.views['peopleListView'].render().el);
+		console.log(err);
+		veteransOutputData = out;
+		console.log("data stored in --> var veteransOutputData");
+      */
     },    
     unrender: function() {
       $(this.el).remove();

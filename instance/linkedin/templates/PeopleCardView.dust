@@ -1,0 +1,78 @@
+{!
+  Available data:
+    INT   person.distance
+    STR   person.firstName
+    STR   person.headline
+    STR   person.id
+    STR   person.industry
+    STR   person.lastName    
+    STR   person.pictureUrl
+    STR   person.publicProfileUrl
+
+    OBJ   person.location
+    STR   person.location.name
+    OBJ   person.location.country
+    STR   person.location.country.code    
+    
+    BOOL  person.degreeMyself
+    BOOL  person.degreeFirst
+    BOOL  person.degreeSecond
+    BOOL  person.degreeThird
+    BOOL  person.degreeOon
+!}
+
+{!#person.pictureUrl}
+    <img src="{person.pictureUrl}">
+{:else}
+    <img src="img/person.png" />
+{/person.pictureUrl!}
+
+<a href="{person.publicProfileUrl}" target="_blank" class="profile-link">
+
+{?person.pictureUrl}
+    <img src="{person.pictureUrl}">
+{:else}
+    <img src="img/person.png" />
+{/person.pictureUrl}
+
+<span class="details">
+	<span class="name">
+		<span class="person-name-link">{person.firstName} {person.lastName}</span>
+    {person.distanceFirst}
+		{?person.degreeOon}
+		{:else}
+			<span class="network-degree">
+			{?person.degreeMyself}
+				You
+			{/person.degreeMyself}
+		
+			{?person.degreeFirst}
+				1st
+			{/person.degreeFirst}
+		
+			{?person.degreeSecond}
+				2nd
+			{/person.degreeSecond}
+		
+			{?person.degreeThird}
+				3rd
+			{/person.degreeThird}
+			</span>
+		{/person.degreeOon}
+
+	</span>
+
+	<span class="headline">{person.headline}</span>
+	<span class="location">{person.location.name}</span>
+</span>
+</a>
+<div class="action-bar">
+	{! TO-DO: based on distance value show connect or not or edit profile!}
+	{?person.degreeMyself}
+		<a href="http://www.linkedin.com/profile/edit" target="_blank" class="connect-action">Edit Profile</a>
+	{:else}
+		<a href="{person.publicProfileUrl}" class="connect-action" target="_blank">Connect</a>
+	{/person.degreeMyself}
+
+	<span class="options">{! place-holder for shared connections !}</span>
+</div>

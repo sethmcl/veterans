@@ -46,7 +46,7 @@ define(function(require) {
           ul.append(view.render().el);
         });
         
-        $('a', self.el).click(self.toggleBucket);        
+        //$('a', self.el).click(self.toggleBucket);        
       });
 
       return this;
@@ -108,26 +108,26 @@ define(function(require) {
       });        
     },
     toggleBucket: function(e) {
-      log('facet bucket clicked');
-      var target    = $(e.target);
-      var dataJSON  = target.closest('a').attr('data-bucket');
-      var data;
+      // log('facet bucket clicked');
+      // var target    = $(e.target);
+      // var dataJSON  = target.closest('a').attr('data-bucket');
+      // var data;
 
-      try {
-        data = JSON.parse(dataJSON);
-      } catch(e) {
-        log(e);
-      }
+      // try {
+      //   data = JSON.parse(dataJSON);
+      // } catch(e) {
+      //   log(e);
+      // }
 
-      if(!data) return;
+      // if(!data) return;
 
-      //alert(data.facet);
+      // //alert(data.facet);
 
-      if(data.add) {
-        channel.pub('search', 'add-bucket', { data: data });
-      } else {
-        channel.pub('search', 'remove-bucket', { data: data });
-      }      
+      // if(data.add) {
+      //   channel.pub('search', 'add-bucket', { data: data });
+      // } else {
+      //   channel.pub('search', 'remove-bucket', { data: data });
+      // }      
     },
     onAddBucket: function(e) {
       

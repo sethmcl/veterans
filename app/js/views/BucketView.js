@@ -2,6 +2,7 @@ define(function(require) {
   var templateName          = 'BucketView';
   var templateMarkup        = require('text!templates/BucketView.dust');
   var channel               = require('util/channel');
+  var log                   = require('util/log');
 
   dust.loadSource(dust.compile(templateMarkup, templateName));
 
@@ -13,17 +14,20 @@ define(function(require) {
         this, 
         'render', 
         'unrender',
-        'update');    
+        'update',
+        'toggleBucket');    
 
       this.context = {
         firstName: null
       };      
     },
     render: function() {
+      var self = this;
       var el = $(this.el);      
 
       dust.render(templateName, this.context, function(err, out) {
-        el.html(out);      
+        el.html(out);
+        $('a', el).click(self.toggleBucket);             
       });
 
       return this;
@@ -64,6 +68,28 @@ define(function(require) {
 
       $(this.el).addClass('active');
 
+    },
+    toggleBucket: function(e) {
+      log('facet bucket clicked');
+      var target    = $(e.target);
+      var dataJSON  = target.closest('a').attr('data-bucket');
+      var data;
+
+      try {
+        data = JSON.parse(dataJSON);
+      } catch(e) {
+        log(e);
+      }
+
+      if(!data) return;
+
+      //alert(data.facet);
+
+      if(data.add) {
+        channel.pub('search', 'add-bucket', { data: data });
+      } else {
+        channel.pub('search', 'remove-bucket', { data: data });
+      }   
     }
   });
 });

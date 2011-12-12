@@ -36,10 +36,12 @@ define(function(require) {
       channel.sub('search', 'search-begin', this.onSearchBegin);  
     },    
     render: function() {
-      var el = $(this.el);                  
+      var el = $(this.el); 
+      var self = this;                 
 
       dust.render(templateName, this.context, function(err, out) {
         el.html(out);
+        $('a', el).click(self.removeBucket);
       });
 
       return this;

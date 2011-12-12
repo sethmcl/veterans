@@ -23,12 +23,16 @@ define(function(require) {
         firstName: null
       };
 
+      this.rendered = false;
+
       this.facetViews = [ new FacetView(), new FacetView(), new FacetView() ];
 
       channel.sub('search', 'search-returned', this.onSearchReturned);  
       channel.sub('search', 'search-begin', this.onSearchBegin);        
     },    
     render: function() {      
+      if(this.rendered) return this;
+      this.rendered = true;
       dust.render(templateName, this.context, this.dustCb);
       return this;
     },

@@ -3,8 +3,7 @@ require.config({
     //jQuery      : 'libs/jquery/jquery',
     //Underscore  : 'libs/underscore/underscore',
     //Backbone    : 'libs/backbone/backbone',
-    //Dust        : 'libs/dust/dust',
-    templates     : '../templates'
+    //Dust        : 'libs/dust/dust',    
   }
 });
 

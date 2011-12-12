@@ -51,7 +51,7 @@ define(function(require) {
       var peopleCard;
 
       var ul = $('ul', this.el);
-
+      var self = this;
       this.peopleCardViews = [];
       ul.html('');
 
@@ -83,7 +83,9 @@ define(function(require) {
           person.lastName = 'Member';
         }      
                 
-        ul.append(peopleCard.render().el);        
+        ul.append(peopleCard.render().el); 
+        
+        self.peopleCardViews.push(peopleCard);       
       });
 
       if(hasMore) {

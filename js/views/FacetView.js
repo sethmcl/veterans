@@ -44,7 +44,9 @@ define(function(require) {
         
         _.each(bucketViews, function(view) {
           ul.append(view.render().el);
-        });        
+        });
+        
+        $('a', self.el).click(self.toggleBucket);        
       });
 
       return this;

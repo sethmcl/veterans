@@ -4,7 +4,7 @@ require.config({
     //Underscore  : 'libs/underscore/underscore',
     //Backbone    : 'libs/backbone/backbone',
     //Dust        : 'libs/dust/dust',
-    templates     : '../templates'
+    //templates     : '../templates'
   }
 });
 

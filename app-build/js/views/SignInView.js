@@ -1,0 +1,1 @@
+define(function(a){var b="SignInView",c=a("text!templates/SignInView.dust");return dust.loadSource(dust.compile(c,b)),Backbone.View.extend({el:$("#sign-in-view"),events:{},initialize:function(){_.bindAll(this,"render","unrender")},render:function(){var a=$(this.el);dust.render(b,{},function(b,c){a.html(c),IN.parse(a[0])})},unrender:function(){$(this.el).remove()}})})

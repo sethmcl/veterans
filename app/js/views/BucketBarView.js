@@ -37,7 +37,7 @@ define(function(require) {
     },    
     render: function() {
       var el = $(this.el); 
-      var self = this;                 
+      var self = this;      
 
       dust.render(templateName, this.context, function(err, out) {
         el.html(out);

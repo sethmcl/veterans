@@ -51,6 +51,8 @@ body {
 #facet-list-view ul.facet .label.selected { color: lime; }
 */
 
+
+
 #facet-list-view ul.facets .name { margin: 20px 0 0 20px; display: block; font-size: 120%; color: #fff; font-weight: normal;}
 #facet-list-view ul.facets > li { display: inline-block; margin-left: 5%;width: 30%; vertical-align: top;}
 #facet-list-view ul.facets > li:first-child {margin:0;}
@@ -121,8 +123,12 @@ a { color: yellow; }
 #head-view {color:#fff;margin-bottom: 10px;}
 #head-view .header {padding: 0 0 0 5px;font-weight:normal;margin:0;}
 #head-view h1 {font-size: 2.5em;}
-#head-view h2 {font-size: 0.9em;}
+#head-view h2 {font-size: 0.9em; width: 50%; display: inline-block;}
 #head-view .user-name {font-weight:bold;}
+#head-view ul.select-cohort { padding: 0; margin: 0; font-size: 0.9em; float: right;}
+#head-view ul.select-cohort li { display: inline-block; padding: 0 2px 0 2px; }
+#head-view ul.select-cohort li a { font-weight: normal; text-decoration: none; color: #DF9202; }
+#head-view ul.select-cohort li a:hover { color: #fff; text-decoration: underline; }
 
 #facet-list-view .facets,
 #facet-list-view .facet {padding:0;}

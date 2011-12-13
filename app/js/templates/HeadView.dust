@@ -1,2 +1,49 @@
 <h1 class="header">VETERANS</h1>
-<h2 class="header"><span class="user-name">{userData.firstName}</span>, where are your fellow veterans now?</h2>
+
+<div>
+  <h2 class="header">
+    <span class="user-name">{userData.firstName}</span>, where are your fellow {veteransType} veterans now?
+  </h2>
+
+  <ul class="select-cohort">
+    <li>
+      {?allView}
+        All
+      {:else}
+        <a href="?">All</a></li>
+      {/allView}
+    </li>
+    <li>&bull;<li>
+    <li>
+      {?airforceView}
+        Airforce
+      {:else}
+        <a href="?p=airforce">Airforce</a>
+      {/airforceView}
+    </li>
+    <li>&bull;<li>
+    <li>
+      {?armyView}
+        Army
+      {:else}
+        <a href="?p=army">Army</a>
+      {/armyView}
+    </li>
+    <li>&bull;<li>
+    <li>
+      {?marinesView}
+        Marines
+      {:else}
+        <a href="?p=marines">Marines</a>
+      {/marinesView}
+    </li>
+    <li>&bull;<li>
+    <li>
+      {?navyView}
+        Navy
+      {:else}
+        <a href="?p=navy">Navy</a>
+      {/navyView}
+    </li>
+  </ul>
+</div>

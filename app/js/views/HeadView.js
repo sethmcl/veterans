@@ -18,18 +18,19 @@ define(function(require) {
         'onSearchBegin', 
         'onUserData');    
 
-      this.context = {
-        firstName: null
-      };
+      this.context = {};
 
       channel.sub('search', 'search-returned', this.onSearchReturned);  
       channel.sub('search', 'search-begin', this.onSearchBegin);
       channel.sub('auth', 'user-data', this.onUserData);  
     },    
     render: function() {
-      var el = $(this.el);            
+      var el = $(this.el);     
+      var context;
+      
+      context = window.headContext;      
 
-      dust.render(templateName, this.context, function(err, out) {
+      dust.render(templateName, context, function(err, out) {
         el.html(out);
       });
 
@@ -46,7 +47,8 @@ define(function(require) {
       
     },
     onUserData: function(data) {
-      this.context.userData = data;
+      window.headContext.userData = data;
+      //this.context.userData = data;
     }
   });
 });

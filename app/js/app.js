@@ -29,10 +29,11 @@ define(function(require) {
 
   //Render logged-in view
   function onLinkedInAuth() {
-    var hash = window.location.hash.replace('#', '');
+    var hash = window.location.search.replace('?', '');
     var facets = ['location', 'industry', 'current-company'];
     var parts = hash.split('&');
     var urlParams = {};
+    window.headContext = {};
 
     var cats = {
       'army' : [1223, 1226],
@@ -57,7 +58,13 @@ define(function(require) {
       //pastCompanies = urlParams.p.split(',');
       if(cats[urlParams.p]) {
         pastCompanies = cats[urlParams.p];
+        headContext[urlParams.p + 'View'] = true;
+        headContext.veteransType = urlParams.p.charAt(0).toUpperCase() + urlParams.p.slice(1);
+      } else {
+        headContext.allView = true;
       }
+    } else {
+      headContext.allView = true;
     }
 
     peopleSearchInput.addFacets(facets, true);

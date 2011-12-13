@@ -26,7 +26,7 @@ define(function(require) {
       var el = $(this.el);      
 
       dust.render(templateName, this.context, function(err, out) {
-        el.html(out);
+        el.html(out);        
         $('a', el).click(self.toggleBucket);             
       });
 

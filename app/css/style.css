@@ -179,4 +179,4 @@ a { color: yellow; }
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a4d54', endColorstr='#000000',GradientType=0 );
 }
 
- #show-more:hover { color:rgba(253, 255, 89, 1);}
+ #show-more:hover { color:#DF9202;}

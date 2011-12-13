@@ -3,7 +3,8 @@ define(function(require) {
       LoggedInView        = require('views/LoggedInView'),      
       peopleSearch        = require('search/peoplesearch'),
       peopleSearchInput   = require('models/peopleSearchInput'),
-      channel             = require('util/channel');  
+      channel             = require('util/channel'),
+      log                 = require('util/log');
   
   var views = {};
   
@@ -19,16 +20,17 @@ define(function(require) {
         onLinkedInAuth();
       } else {
         views['sign-in'].render();
+
+        //Get notified when the user authorizes our app on LinkedIn
+        IN.Event.onOnce(IN, 'auth', onLinkedInAuth);
       }
     });
 
-    //Get notified when the user authorizes our app on LinkedIn
-    IN.Event.on(IN, 'auth', onLinkedInAuth);
-    
   }
 
   //Render logged-in view
   function onLinkedInAuth() {
+    log('onLinkedInAuth fired');
     var hash = window.location.search.replace('?', '');
     var facets = ['location', 'industry', 'current-company'];
     var parts = hash.split('&');

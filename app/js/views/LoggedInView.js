@@ -31,9 +31,11 @@ define(function(require) {
       };
 
       this.context = {};
+      this.renderCount = 0;
     },
     render: function() {
-      log('rendering loggedinview');
+      this.renderCount++;
+      log('rendering loggedin view: ' + this.renderCount);
 
       dust.render(templateName, this.context, this.dustCb);
     },

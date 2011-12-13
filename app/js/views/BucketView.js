@@ -17,9 +17,7 @@ define(function(require) {
         'update',
         'toggleBucket');    
 
-      this.context = {
-        firstName: null
-      };      
+      this.context = {};              
     },
     render: function() {
       var self = this;
@@ -27,7 +25,7 @@ define(function(require) {
 
       dust.render(templateName, this.context, function(err, out) {
         el.html(out);        
-        $('a', el).click(self.toggleBucket);             
+        $('a', el).click(self.toggleBucket);
       });
 
       return this;

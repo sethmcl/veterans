@@ -6,6 +6,22 @@ body {
   font-family: Helvetica, Verdana, Arial, sans-serif;
   margin-top: 60px;
 }
+#feedback {
+  background-color: gray;
+  background-color: rgba(0, 0, 0, .5);
+  color: #fff;
+  position: fixed;
+  bottom: 0;  
+  left: 0;
+  padding: 5px;
+}
+#feedback a {
+  color: #fff;
+  text-decoration: none;
+}
+#feedback a:hover {
+  text-decoration: underline;
+}
 #main {width: 960px;margin:0 auto;}
 #logged-out {
   width: 300px;

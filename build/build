@@ -1,0 +1,3 @@
+cd ~/dev/veterans/build
+rm -rf ../dist
+node r.js -o app.build.js

@@ -1,3 +1,4 @@
 *.sublime*
 _dev/
 app-build/.
+dist/

@@ -1,1 +1,0 @@
-define(function(a){var b=a("util/events"),c=function(){function d(a,d,e){var f=c[a];return typeof f=="undefined"&&(c[a]=f=new b),f.on(d,e),this}function e(a,b,d){var e=c[a];return typeof e=="undefined"?this:(e.off(b,d),this)}function f(a,b,d){var e=c[a];return typeof e=="undefined"?this:(e.fire(b,d),this)}var a=this,c={};return{sub:d,unsub:e,pub:f}}();return c})

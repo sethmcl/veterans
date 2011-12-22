@@ -1,1 +1,0 @@
-define(["order!libs/backbone/backbone-v"],function(){return _.noConflict(),$.noConflict(),Backbone.noConflict()})

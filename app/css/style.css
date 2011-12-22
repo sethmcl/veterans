@@ -12,15 +12,17 @@ body {
   color: #fff;
   position: fixed;
   bottom: 0;  
-  left: 0;
+  right: 0;
   padding: 5px;
 }
 #feedback a {
-  color: #fff;
+  color: #999;
   text-decoration: none;
+  font-size: 90%;
 }
 #feedback a:hover {
   text-decoration: underline;
+  color: #fff;
 }
 #main {width: 960px;margin:0 auto;}
 #logged-out {
